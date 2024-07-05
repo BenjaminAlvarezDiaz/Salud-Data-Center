@@ -1,0 +1,25 @@
+.caja1{
+    background-color: #000028;
+    border-radius: 30px;
+    padding: 10px 50px 10px 50px;
+}
+.titulo1{
+    color: lightseagreen;
+}
+.caja2{
+    display: block;
+    background-color: rgba(200, 200, 200, 0.7);
+    border-radius: 30px;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 10px;
+    margin-bottom: 5px;
+    transition: 1.0s;
+    text-decoration: none;
+    color: white;
+}
+.caja2:hover{
+    background-color: #00FFFF;
+    transition: 1.0s;
+    color: black;
+}

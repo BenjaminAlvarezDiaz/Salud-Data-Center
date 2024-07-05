@@ -1,0 +1,55 @@
+.Seleccion {
+  background-color: #000028;
+  border-radius: 30px;
+  padding-top: 1px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+}
+.BotonDoc{
+    margin-right: 20px;
+    border-radius: 30px;
+    font-size: 20px;
+}
+.BotonEmp{
+    margin-left: 20px;
+    border-radius: 30px;
+    font-size: 20px;
+}
+.CajaDoctor {
+  background-color: #000028;
+  border-radius: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.CajaEmpresa {
+  background-color: #000028;
+  border-radius: 30px;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+.Seleccion.desaparecer {
+  display: none;
+}
+.MensajeError{
+  background-color: red;
+  width: fit-content;
+  border-radius: 30px;
+  padding: 10px;
+  margin: 20px auto 0;
+}
+.passinp{
+  background-color: black;
+  padding: 1px 20px 20px 20px;
+  border-radius: 10px;
+  width: fit-content;
+  margin: 10px auto 0;
+}
+input[type="password"] {
+  background-color: black; /* Puedes cambiar "lightblue" por el color que desees */
+  color: greenyellow;
+}
+input[type="text"] {
+  background-color: black; /* Puedes cambiar "lightblue" por el color que desees */
+  color: greenyellow;
+}
