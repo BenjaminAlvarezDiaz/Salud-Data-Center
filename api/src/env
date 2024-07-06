@@ -1,7 +1,0 @@
-DB_NAME=Inicio_ses
-DB_HOST=localhost
-DB_PASSWORD=123
-DB_USER=postgres
-PORT=3001
-DB_PORT=5432
-DB_CONNECTION=postgresql://postgres:123@localhost:5432/Inicio_ses
