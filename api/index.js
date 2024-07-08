@@ -13,7 +13,6 @@ conn.sync({ force: false }).then(() => {
   return conn.query('SELECT * FROM public."Doctors"');
 }).then((res)=> {
   console.log('Lista de doctores: ', res[0]);
-  //console.log(res.rows);
 }).catch((err)=> {
   console.error('Error ejecutando la consulta', err.stack);
 });
