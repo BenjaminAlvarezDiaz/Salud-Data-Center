@@ -10,4 +10,10 @@ conn.sync({ force: false }).then(() => {
       `Servidor de Salud Data Center esta esuchando el puerto : ${process.env.PORT} 🚀`
     ); // eslint-disable-line no-console
   });
+  return conn.query('SELECT * FROM public."Doctors"');
+}).then((res)=> {
+  console.log('Lista de doctores: ', res[0]);
+  //console.log(res.rows);
+}).catch((err)=> {
+  console.error('Error ejecutando la consulta', err.stack);
 });
