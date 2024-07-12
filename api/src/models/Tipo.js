@@ -28,5 +28,9 @@ module.exports = (sequelize) => {
     imagenes: {
         type: DataTypes.STRING,
     }
-  });
+  },
+  {
+    timestamps: false,
+  }
+);
 };
