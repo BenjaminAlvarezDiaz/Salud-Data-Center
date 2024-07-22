@@ -1,7 +1,54 @@
 const { Productos, Tipo, Categoria } = require ("../db.js"); // Ajusta la ubicación de tus modelos
 
+async function getProductos(req, res){
+
+  //Por Modelo
+  if (req.query.modelo) {
+    const data = await getProductosByModelo(req.query.modelo);
+    if (data) {
+      return res.json(data);
+    } else {
+      return res.status(404).json({ message: "No existe en la db" });
+    }
+  }
+
+  //Por id
+  if (req.query.id) {
+    const data = await getProductosById(req.query.id);
+    if (data) {
+      return res.json(data);
+    } else {
+      return res.status(404).json({ message: "No existe en la db" });
+    }
+  }
+
+  try{
+    const productos = await Productos.findAll();
+    res.status(200).json(productos);
+  } catch(error){
+    console.error('Error al obtener productos: ', error.message);
+    return res.status(500).json({message: 'Error al obtener productos'});
+  }
+}
+
+const getProductosByModelo = async (modelo) => {
+  const productos = await Productos.findAll({
+    where: {modelo},
+  });
+
+  return productos.length ? productos : false;
+}
+
+const getProductosById = async (id) => {
+  const productos = await Productos.findAll({
+    where: {id},
+  });
+
+  return productos.length ? productos : false;
+}
+
 // Controlador para obtener todos los usuarios
-async function getProductos(req, res) {
+/*async function getProductos(req, res) {
   try {
     const productos = await Productos.findAll();
     res.status(200).json(productos);
@@ -9,10 +56,10 @@ async function getProductos(req, res) {
     console.error('Error al obtener usuarios:', error);
     res.status(500).send('Error al obtener productos');
   }
-}
+}*/
 
 // Controlador para obtener todos los posts
-const getTipo = async (req, res) => {
+/*const getTipo = async (req, res) => {
   // ????name   localhost:4000/empresas?name=gustavo
   //
 
@@ -37,10 +84,9 @@ const getTipo = async (req, res) => {
   } catch (error) {
    return res.status(500).json({message: error.message})
   }
-}
+}*/
 
-
-const getTipoID = async (id) => {
+/*const getTipoID = async (id) => {
    
         
   const tipo = await Tipo.findAll({
@@ -50,8 +96,7 @@ const getTipoID = async (id) => {
   })
   return tipo.length?tipo:false   
 
-} 
-
+}*/
 
 // Controlador para obtener todas las categorías
 async function getCategoria(req, res) {
