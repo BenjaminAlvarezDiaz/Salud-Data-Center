@@ -21,9 +21,9 @@ async function updatePacientes(req, res) {
    
       await pacientes.save();
 
-      return res.json({ message: 'Doctor actualizado correctamente', pacientes });
+      return res.json({ message: 'Paciente actualizado correctamente', pacientes });
     } else {
-      return res.status(404).json({ message: 'Doctor no encontrado' });
+      return res.status(404).json({ message: 'Paciente no encontrado' });
     }
   } catch (error) {
     console.error("Error al actualizar el pacientes:", error);

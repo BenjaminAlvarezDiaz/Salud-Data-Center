@@ -1,6 +1,6 @@
 const { Router } = require('express');
-const { getCategoria } = require ('../controllers/getProductos.js')
-const { createCategoria} = require ('../controllers/postProductos.js')
+const { getCategoria } = require ('../controllers/getCategoria.js')
+const { createCategoria} = require ('../controllers/postCategoria.js')
 
 
 
