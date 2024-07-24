@@ -36,3 +36,5 @@ CREATE TABLE IF NOT EXISTS sub_categoria (
         ON UPDATE CASCADE
         ON DELETE SET NULL
 );
+
+-- Crear tabla empresas
