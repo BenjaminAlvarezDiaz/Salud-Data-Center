@@ -1,6 +1,7 @@
 -- Database
 
-
+CREATE DATABASE SALUD_DATA_CENTER;
+USE SALUD_DATA_CENTER;
 
 -- Tabla categoria
 
