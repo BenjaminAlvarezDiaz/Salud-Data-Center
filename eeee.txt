@@ -37,4 +37,4 @@ CREATE TABLE IF NOT EXISTS sub_categoria (
         ON DELETE SET NULL
 );
 
--- Crear tabla empresas
+-- Crear tabla empresas_1
