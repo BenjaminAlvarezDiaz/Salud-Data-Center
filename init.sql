@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS categoria
     "Nombre" character varying(255) COLLATE Latin1_General_CI_AS,
     "createdAt" timestamp with time zone NOT NULL,
     "updatedAt" timestamp with time zone NOT NULL,
-)
+);
 
 -- Tabla doctores
 
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS doctores
     contrasena character varying(255) COLLATE Latin1_General_CI_AS,
     email character varying(255) COLLATE Latin1_General_CI_AS,
     dni integer,
-)
+);
 
 -- Tabla empresas
 
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS empresas
     contact character varying(255) COLLATE Latin1_General_CI_AS,
     logo character varying(255) COLLATE Latin1_General_CI_AS,
     url character varying(255) COLLATE Latin1_General_CI_AS,
-)
+);
 
 -- Tabla pacientes
 
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS pacientes
     "Exp_Medico" character varying(255) COLLATE Latin1_General_CI_AS,
     "createdAt" timestamp with time zone NOT NULL,
     "updatedAt" timestamp with time zone NOT NULL,
-)
+);
 
 -- Tabla productos
 
@@ -76,7 +76,7 @@ CREATE TABLE IF NOT EXISTS productos
         REFERENCES public.tipos (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE SET NULL
-)
+);
 
 -- Tabla registros
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS registros
     indicaciones character varying(255) COLLATE Latin1_General_CI_AS,
     "createdAt" timestamp with time zone NOT NULL,
     "updatedAt" timestamp with time zone NOT NULL,
-)
+);
 
 -- Tabla subCategorias
 
@@ -107,7 +107,7 @@ CREATE TABLE IF NOT EXISTS sub_categoria
         REFERENCES public.categoria (id) MATCH SIMPLE
         ON UPDATE CASCADE
         ON DELETE SET NULL,
-)
+);
 
 -- Tabla tipo
 
@@ -123,4 +123,4 @@ CREATE TABLE IF NOT EXISTS tipo
     imagenes character varying(255) COLLATE Latin1_General_CI_AS,
     "createdAt" timestamp with time zone NOT NULL,
     "updatedAt" timestamp with time zone NOT NULL,
-)
+);
