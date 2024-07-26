@@ -72,14 +72,6 @@ CREATE TABLE IF NOT EXISTS productos
     updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     tipoId integer,
     categoriaId integer,
-    CONSTRAINT productos_categoriaId_fkey FOREIGN KEY (categoriaId)
-        REFERENCES categoria (id)
-        ON UPDATE CASCADE
-        ON DELETE SET NULL,
-    CONSTRAINT productos_tipoId_fkey FOREIGN KEY (tipoId)
-        REFERENCES tipos (id)
-        ON UPDATE CASCADE
-        ON DELETE SET NULL,
     PRIMARY KEY (id)
 );
 
@@ -109,11 +101,8 @@ CREATE TABLE IF NOT EXISTS sub_categoria
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     categoriaId integer,
-    PRIMARY KEY (id),
-    CONSTRAINT catego FOREIGN KEY (categoriaId)
-        REFERENCES categoria (id)
-        ON UPDATE CASCADE
-        ON DELETE SET NULL,
+    
+    PRIMARY KEY (id)
 );
 
 -- Tabla tipo
@@ -132,3 +121,23 @@ CREATE TABLE IF NOT EXISTS tipo
     updatedAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     PRIMARY KEY (id)
 );
+
+-- Alter table productos
+
+ALTER TABLE productos
+ADD CONSTRAINT productos_categoriaId_fkey FOREIGN KEY (categoriaId) 
+    REFERENCES categoria (id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL
+ADD CONSTRAINT productos_tipoId_fkey FOREIGN KEY (tipoId) 
+    REFERENCES tipo (id)
+    ON UPDATE CASCADE
+    ON DELETE SET NULL;
+
+-- Alter table subCategoria
+
+ALTER TABLE subCategoria
+ADD CONSTRAINT catego FOREIGN KEY (categoriaId)
+        REFERENCES categoria (id)
+        ON UPDATE CASCADE
+        ON DELETE SET NULL;
