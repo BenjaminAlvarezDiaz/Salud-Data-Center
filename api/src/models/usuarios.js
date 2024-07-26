@@ -13,43 +13,43 @@ module.exports = (sequelize) => {
         autoIncrement: true,
       },
 
-      Nombre: {
+      nombre: {
         type: DataTypes.STRING,
       },
 
-      Apellido: {
+      apellido: {
         type: DataTypes.STRING,
       },
 
-      Dni: {
+      dni: {
         type: DataTypes.INTEGER,
       },
 
-      Email: {
+      email: {
         type: DataTypes.STRING,
       },
 
-      Telefono: {
+      telefono: {
         type: DataTypes.INTEGER,
       },
 
-      Telefono2: {
+      telefono2: {
         type: DataTypes.INTEGER,
       },
 
-      Sintomas: {
+      sintomas: {
         type: DataTypes.STRING,
       },
 
-      Tratamiento: {
+      tratamiento: {
         type: DataTypes.STRING,
       },
 
-      Diagnostico: {
+      diagnostico: {
         type: DataTypes.STRING,
       },
 
-      Exp_Medico: {
+      exp_Medico: {
         type: DataTypes.STRING,
       },
     },
