@@ -1,6 +1,6 @@
 // actions.js
 import axios from 'axios';
-import { LOGIN_SUCCESS, LOGIN_FAILURE } from '../Redux/const';
+import { LOGIN_SUCCESS, LOGIN_FAILURE } from '../const';
 
 export const verificarDoctorPorCredenciales = (userData) => {
   return async (dispatch) => {

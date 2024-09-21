@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  verificarDoctorPorCredenciales,
-  verificarEmpresaPorCredenciales,
-} from "../Redux/actions";
+import { verificarDoctorPorCredenciales, verificarEmpresaPorCredenciales, } from "../redux/actions/actions.js";
 import "../styles/Iniciar_Sesion.css";
 import { useNavigate } from "react-router-dom";
 

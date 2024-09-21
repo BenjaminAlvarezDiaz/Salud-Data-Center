@@ -1,5 +1,5 @@
 // importar las constantes (const.js)
-import { LOGIN_SUCCESS, LOGIN_FAILURE } from "./const";
+import { LOGIN_SUCCESS, LOGIN_FAILURE } from "../const";
 
 // Aquí va el estado inicial basado en la estructura de la tabla de la API
 const initialState = {

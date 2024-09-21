@@ -1,5 +1,5 @@
 .Seleccion {
-  background-color: #000028;
+  background-color: var(--background-color);
   border-radius: 30px;
   padding-top: 1px;
   padding-left: 20px;
@@ -17,7 +17,7 @@
     font-size: 20px;
 }
 .CajaDoctor {
-  background-color: #000028;
+  background-color: var(--background-color);
   border-radius: 30px;
   padding-left: 20px;
   padding-right: 20px;

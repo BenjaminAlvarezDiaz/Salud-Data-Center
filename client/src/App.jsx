@@ -1,8 +1,8 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Perfil_Doctor from "./components/Perfil_Doctor";
-import Iniciar_Sesion from "./components/Inicio_Se";
-import Perfil_Empresa from "./components/Perfil_Empresa"; // Agrega la importación
+import Perfil_Doctor from "./pages/Perfil_Doctor";
+import Iniciar_Sesion from "./pages/Inicio_Se";
+import Perfil_Empresa from "./pages/Perfil_Empresa"; // Agrega la importación
 
 function App() {
   return (
