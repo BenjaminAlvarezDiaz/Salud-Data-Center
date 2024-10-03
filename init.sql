@@ -147,9 +147,9 @@ ADD CONSTRAINT catego FOREIGN KEY (categoriaId)
 CREATE TABLE IF NOT EXISTS pedidos 
 (
     id integer NOT NULL AUTO_INCREMENT,
-    idClient integer,
-    statusOrder character varying(255) COLLATE latin1_general_ci,
-    idProduct integer,
+    idCliente integer,
+    estadoPedido character varying(255) COLLATE latin1_general_ci,
+    idProducto integer,
     total float,
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updateAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
@@ -162,12 +162,12 @@ CREATE TABLE IF NOT EXISTS pedidos
 CREATE TABLE IF NOT EXISTS citas 
 (
     id integer NOT NULL AUTO_INCREMENT,
-    idClient integer,
+    idCliente integer,
     idDoctor integer,
-    attentionDate TIMESTAMP,
-    startAttention TIMESTAMP,
-    endAttention TIMESTAMP,
-    statusQuote character varying(255) COLLATE latin1_general_ci,
+    fechaAtencion TIMESTAMP,
+    inicioAtencion TIMESTAMP,
+    finAtencion TIMESTAMP,
+    estadoCita character varying(255) COLLATE latin1_general_ci,
     createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updateAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 
