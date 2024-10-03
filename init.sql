@@ -141,3 +141,35 @@ ADD CONSTRAINT catego FOREIGN KEY (categoriaId)
         REFERENCES categoria (id)
         ON UPDATE CASCADE
         ON DELETE SET NULL;
+
+-- Tabla pedidos
+
+CREATE TABLE IF NOT EXISTS pedidos 
+(
+    id integer NOT NULL AUTO_INCREMENT,
+    idClient integer,
+    statusOrder character varying(255) COLLATE latin1_general_ci,
+    idProduct integer,
+    total float,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updateAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    
+    PRIMARY KEY (id)
+);
+
+--Tabla citas
+
+CREATE TABLE IF NOT EXISTS citas 
+(
+    id integer NOT NULL AUTO_INCREMENT,
+    idClient integer,
+    idDoctor integer,
+    attentionDate TIMESTAMP,
+    startAttention TIMESTAMP,
+    endAttention TIMESTAMP,
+    statusQuote character varying(255) COLLATE latin1_general_ci,
+    createdAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updateAt TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+
+    PRIMARY KEY (id)
+);
