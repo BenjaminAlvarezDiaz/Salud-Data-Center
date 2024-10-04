@@ -1,0 +1,40 @@
+.tabBar {
+    position: fixed;
+    display: none;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #474e79;
+    color: white;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.tabBar nav ul {
+    display: flex;
+    justify-content: space-around;
+    list-style-type: none;
+    margin: 0;
+    padding: 10px 0;
+}
+
+.tabBar nav ul li {
+    flex: 1;
+    text-align: center;
+}
+
+.tabBar nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.tabBar nav ul li a .material-icons {
+    font-size: 24px;
+    margin-bottom: 4px;
+}
+
+@media (max-width: 700px) {
+    .tabBar {
+      display: block;
+    }
+}

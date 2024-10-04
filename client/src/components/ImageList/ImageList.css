@@ -1,0 +1,91 @@
+.image-list-wrapper {
+    flex-direction: row;
+    display: flex;
+    padding: 20px;
+    overflow: hidden; 
+    position: relative;
+    width: 100%;
+}
+
+.image-list-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden; 
+}
+
+.image-list {
+    display: flex;
+    flex: wrap;
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
+    padding: 2rem;
+    flex-grow: 1;
+    background-color: transparent;
+}
+
+.image-card {
+    flex: 0 0 calc(100% / 1);
+    height: 200px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    transition: transform 0.3s ease;
+    background: #474e79;
+}
+  
+.image {
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.prev-btn {
+    left: 10px; 
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    align-self: center;
+    align-content: center;
+    background: gainsboro;
+  }
+  
+.next-btn {
+    right: 10px; 
+    height: 50px;
+    width: 50px;
+    border-radius: 50px;
+    align-self: center;
+    align-content: center;
+    background: gainsboro;
+}
+
+/*.card-container {
+    display: flex;
+    gap: 1rem;
+}*/
+
+/*.card-list {
+    flex: 0 0 calc(100% / 2);
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    transition: transform 0.3s ease;
+    background: #474e79;
+}*/
+
+/*.card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    flex: 1;
+}*/

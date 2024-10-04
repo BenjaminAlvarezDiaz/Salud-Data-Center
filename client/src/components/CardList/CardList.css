@@ -1,0 +1,101 @@
+/*Card Vertical*/
+
+.card {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+    transition: transform 0.3s ease;
+    background: #474e79;
+}
+  
+.card:hover {
+    transform: translateY(-5px);
+}
+  
+.card-image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+  
+.card-content {
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    text-align: left;
+}
+  
+.card-title {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+}
+  
+.card-subtitle {
+    font-size: 14px;
+    color: #777;
+    margin-top: 5px;
+}
+
+.card-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.card-list-wrapper {
+    padding: 20px;
+    overflow: hidden; 
+    position: relative;
+}
+  
+.card-list-container {
+    display: flex;
+    width: 100%;
+    overflow: hidden; 
+}
+
+/*Card Horizontal*/
+
+.card-horizontal {
+    flex: 0 0 calc(100% / 9.5);
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    transition: transform 0.3s ease;
+    background: #474e79;
+}
+
+.card-list-horizontal {
+    display: flex;
+    flex: wrap;
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
+}
+
+.btns {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.sizeBox {
+    width: 100%;
+}
+
+.prev-btn {
+    left: 10px; 
+  }
+  
+.next-btn {
+    right: 10px; 
+}
