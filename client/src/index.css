@@ -4,10 +4,10 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-image: url(./assets/blurred-abstract-background-interior-view-looking-out-toward-empty-office-lobby-entrance-doors-glass-curtain-wall-with-frame.jpg);
+  color: var(--background-color);
+  /*background-image: url(./assets/blurred-abstract-background-interior-view-looking-out-toward-empty-office-lobby-entrance-doors-glass-curtain-wall-with-frame.jpg);
   background-size: cover;
-  background-repeat: no-repeat;
+  background-repeat: no-repeat;*/
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -31,6 +31,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: var(--background-color);
 }
 
 h1 {

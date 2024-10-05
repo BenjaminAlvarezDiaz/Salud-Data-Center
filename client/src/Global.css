@@ -7,7 +7,7 @@
     --secondary: #2ecc71;
     --secondary-l1: #36e47f;
     --secondary-d1: #27b462;
-    --background-color: #f0f0f0;
+    --background-color: #f2f2f2;
 
 
     --default-text: #424242;
@@ -21,6 +21,7 @@
     --cancel: #EB1B1B;
     --accept: #1B8023;
     --shadow: #878787;
+    --shadow-container: rgba(0,0,0,0.08);
     --default-background: #FFFFFF;
     --border-l1:#dcdcdc ;
 
@@ -31,7 +32,7 @@
     --gray-l2: #AAAAAA;
     --red: #E5322F;
     --green: #2DC427;
-    --transparent: transparent;
+    --transparent: #f0f0f0;
 
 
 }
