@@ -5,6 +5,7 @@ import './Sidebar.css';
 function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
     return (
         <div className={`sidebar ${isOpen ? 'open' : ''}`}>
+            <div className='sizedbox-vertical'/>
             {/*<button className="close-btn" onClick={toggleSidebar}>X</button>*/}
             {logo && companyName? 
                 <div className='company'><img src={logo} className='image'/>{companyName}</div>
