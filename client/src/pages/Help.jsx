@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import AppBar from '../components/AppBar/AppBar';
 import Sidebar from '../components/SideBar/Sidebar';
 import '../styles/Help.css';
 
@@ -11,6 +12,7 @@ function Help(){
 
     return(
         <div className='main-container'>
+            <AppBar></AppBar>
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         </div>
     );
