@@ -4,6 +4,7 @@ import Perfil_Doctor from "./pages/Perfil_Doctor";
 import Iniciar_Sesion from "./pages/Inicio_Se";
 import Perfil_Empresa from "./pages/Perfil_Empresa"; // Agrega la importación
 import Help from "./pages/Help";
+import Stats from "./pages/Estadisticas";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/" element={<Help />} />
         <Route path="/Perfil" element={<Perfil_Doctor />} />
         <Route path="/PerfilEmp" element={<Perfil_Empresa />} />
+        <Route path="/stadistics" element={<Stats />} />
         <Route path="/Help" element={<Help />}/>
       </Routes>
     </div>
