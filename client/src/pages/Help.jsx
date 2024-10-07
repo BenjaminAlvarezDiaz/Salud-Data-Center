@@ -12,7 +12,7 @@ function Help(){
 
     return(
         <div className='main-container'>
-            <AppBar></AppBar>
+            <AppBar/>
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         </div>
     );

@@ -3,6 +3,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    padding: 10px;
     display: flex;
     z-index: 1000;
     justify-content: space-between;
@@ -12,9 +13,8 @@
 }
 
 .menuButtonStyle {
-    font-size: 24px;
+    font-size: 28px;
     cursor: pointer;
-    padding: 10px;
 }
 
 .titleStyle {
@@ -33,12 +33,16 @@
     width: 1px;
 }
 
-.iconRightStyle {
-    width: 50px;
-    height: 50px;
+.iconRight {
+    width: 40px;
+    height: 40px;
     background: gray;
-    border-radius: 50px;
+    border-radius: 30px;
     align-content: center;
+}
+
+.iconRightStyle {
+    font-size: 24px;
 }
 
 .endBox {

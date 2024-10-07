@@ -7,15 +7,15 @@ function AppBar({ toggleSidebar, content, contentRight, iconRight }){
       }
     return (
     <div className="appBarStyle">
-        <div className="menuButtonStyle" onClick={toggleSidebar}>
-            &#9776;
+        <span className="material-icons , menuButtonStyle" onClick={toggleSidebar}>
+            menu
             {/* Icono de menú de hamburguesa */}
-        </div>
+        </span>
         {content}
       <div className="contentRightStyle">
         {contentRight? contentRight : (<div className="itemRight"></div>)}
-        <div className="iconRightStyle">
-          { iconRight? iconRight : (<span className="material-icons">person</span>)}
+        <div className="iconRight">
+          { iconRight? iconRight : (<span className="material-icons , iconRightStyle">person</span>)}
         </div>
       </div>
       <div className="endBox"></div>
