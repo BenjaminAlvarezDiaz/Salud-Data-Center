@@ -3,3 +3,9 @@
     background-color: var(--background-color);
     color: var(--background-color);
 }
+
+.content{
+    padding-top: 50px;
+    width: 100%;
+    height: 100%;
+}

@@ -6,7 +6,7 @@ const{ updateDoctor } = require('../controllers/putDoctors.js')
 
 const router = Router();
 
-router.get("/",getDoctor);
+router.get("/getDoctor",getDoctor);
 router.post("/search",verificarDoctorPorCredenciales);
 router.post("/", CreateDoctors);
 router.delete("/",DeleteDoctors);

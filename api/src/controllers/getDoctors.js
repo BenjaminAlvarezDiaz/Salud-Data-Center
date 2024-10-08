@@ -1,9 +1,14 @@
-const { Doctor } = require("../db");
+const { Doctor } = require("../db.js");
+//"Doctor" asi tiene que llamarse en el modelo correspondiente en la parte de '' en donde dice
+// define
 
 async function getDoctor(req, res) {
   try {
+    console.log(req.query.id);
+    console.log(Doctor);
     if (req.query.id) {
       const data = await getDoctorById(req.query.id);
+      console.log('aaaaaa');
       if (data) {
         return res.json(data);
       } else {
@@ -46,6 +51,7 @@ async function getDoctor(req, res) {
 
 async function getDoctorById(id) {
   try {
+    console.log(id + "aaaaaaaaaaaa");
     const doctor = await Doctor.findByPk(id);
 
     if (doctor) {
