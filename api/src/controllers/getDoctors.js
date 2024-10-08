@@ -1,9 +1,11 @@
-const { Doctor } = require("../db");
+const { Doctor } = require("../db.js");
 
 async function getDoctor(req, res) {
   try {
+    console.log(req.query.id);
     if (req.query.id) {
       const data = await getDoctorById(req.query.id);
+      console.log('aaaaaa');
       if (data) {
         return res.json(data);
       } else {

@@ -19,8 +19,8 @@ function Help(){
 
     const getDoctorById = async (e) => {
         e.preventDefault();
-        setId({id:1});
         try {
+            setId(1);
             const response = await dispatch(obtenerDoctores({id}));
             console.log("Status: " + response.status);
             if(response && response.status === 200){

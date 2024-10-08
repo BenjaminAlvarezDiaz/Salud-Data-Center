@@ -5,9 +5,13 @@ import { LOGIN_SUCCESS, LOGIN_FAILURE } from '../const.js';
 export function obtenerDoctores(userData){
     return async (dispatch) => {
         try {
-
+            console.log(userData);
             //Realiza la solicitud a la API 
-            const response = await axios.get('http://localhost:3001/Doctors/getDoctor', userData);
+            const response = await axios.get('http://localhost:3001/Doctors/getDoctor', {
+                params: {
+                  id: userData.id,
+                }
+              });
             console.log("Response obtenido", response);
             const doctor = response.data;
             if (doctor) {
