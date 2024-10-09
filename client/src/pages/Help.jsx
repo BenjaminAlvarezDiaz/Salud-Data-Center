@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 function Help(){
     const [isSidebarOpen, setSidebarOpen] = useState(true);
-    const [id, setId] = useState("");
+    var [id, setId] = useState("");
     const toggleSidebar = () => {
         //alert('¡Me hiciste click!');
         setSidebarOpen(!isSidebarOpen);
@@ -17,11 +17,14 @@ function Help(){
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const getDoctorById = async (e) => {
+    async function getDoctorById (e) {
+        id= 1;
+        console.log("wryyyyyyyyyyyyyyyyyy");
         e.preventDefault();
+        
         try {
-            setId(1);
-            const response = await dispatch(obtenerDoctores({id}));
+            
+            const response = await dispatch(getDoctors({id}));
             console.log("Status: " + response.status);
             if(response && response.status === 200){
                 console.log("DATOS CONSEGUIDOS SATISFACTORIAMENTE");

@@ -1,4 +1,4 @@
-const { Productos, Tipo, Categoria } = require ("../db.js"); // Ajusta la ubicación de tus modelos
+const { Productos, Tipo, Category } = require ("../db.js"); // Ajusta la ubicación de tus modelos
 
 // Controlador para obtener todos los usuarios
 async function getProductos(req, res) {
@@ -56,7 +56,7 @@ const getTipoID = async (id) => {
 // Controlador para obtener todas las categorías
 async function getCategoria(req, res) {
   try {
-    const categorias = await Categoria.findAll();
+    const categorias = await Category.findAll();
     res.status(200).json(categorias);
   } catch (error) {
     console.error('Error al obtener categorías:', error);
