@@ -2,10 +2,10 @@
 import axios from "axios";
 import { LOGIN_SUCCESS, LOGIN_FAILURE } from '../const.js';
 
-export function obtenerDoctores(userData){
+export function getDoctors(userData){
     return async (dispatch) => {
         try {
-            console.log(userData);
+            //console.log(userData);
             //Realiza la solicitud a la API 
             const response = await axios.get('http://localhost:3001/Doctors/getDoctor', {
                 params: {
@@ -30,4 +30,8 @@ export function obtenerDoctores(userData){
             return error;
         }
     };
+}
+
+export function postDoctors(userData){
+    return ;
 }
