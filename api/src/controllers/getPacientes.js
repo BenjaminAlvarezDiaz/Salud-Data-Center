@@ -1,9 +1,9 @@
-const { Pacientes } = require("../db.js");
+const { Patient } = require("../db.js");
 
-async function GetPacientes(req, res) {
+async function GetPatients(req, res) {
   //Por Nombre
   if (req.query.name) {
-    const data = await GetPacientesByName(req.query.name);
+    const data = await GetPatientsByName(req.query.name);
     if (data) {
       return res.json(data);
     } else {
@@ -13,7 +13,7 @@ async function GetPacientes(req, res) {
 
   //Por Apellido
   if (req.query.surname) {
-    const data = await GetPacientesBySurname(req.query.surname);
+    const data = await GetPatientsBySurname(req.query.surname);
     if (data) {
       return res.json(data);
     } else {
@@ -23,27 +23,27 @@ async function GetPacientes(req, res) {
 
   //Todos
   try {
-    const pacientes = await Pacientes.findAll();
+    const pacientes = await Patient.findAll();
     res.json(pacientes);
   } catch (error) {
     return res.status(500).json({ message: error.message });
   }
 }
 
-const GetPacientesByName = async (Nombre) => {
-  const pacientes = await Pacientes.findAll({
+const GetPatientsByName = async (Nombre) => {
+  const pacientes = await Patient.findAll({
     where: { Nombre },
   });
 
   return pacientes.length ? pacientes : false;
 };
 
-const GetPacientesBySurname = async (Apellido) => {
-  const pacientes = await Pacientes.findOne({
+const GetPatientsBySurname = async (Apellido) => {
+  const pacientes = await Patient.findOne({
     where: { Apellido },
   });
 
   return pacientes.length ? pacientes : false;
 };
 
-module.exports = { GetPacientes, GetPacientesByName, GetPacientesBySurname };
+module.exports = { GetPatients, GetPatientsByName, GetPatientsBySurname };

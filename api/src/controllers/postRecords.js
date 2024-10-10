@@ -1,4 +1,4 @@
-const { Records } = require('../db');
+const { Record } = require('../db');
 
 // Método para crear un nuevo registro médico
 async function postRecords(req, res) {
@@ -13,7 +13,7 @@ async function postRecords(req, res) {
 
   try {
     // Crear un nuevo registro médico en la base de datos
-    const nuevoHistorial = await Records.create({
+    const nuevoHistorial = await Record.create({
       nombrepaciente,
       doctorasignado,
       fechaemision,

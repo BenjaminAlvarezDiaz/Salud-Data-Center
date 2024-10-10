@@ -1,9 +1,9 @@
-const { Productos, Tipo, Category } = require ("../db.js"); // Ajusta la ubicación de tus modelos
+const { Product, Type, Category } = require ("../db.js"); // Ajusta la ubicación de tus modelos
 
 // Controlador para obtener todos los usuarios
-async function getProductos(req, res) {
+async function getProducts(req, res) {
   try {
-    const productos = await Productos.findAll();
+    const productos = await Product.findAll();
     res.status(200).json(productos);
   } catch (error) {
     console.error('Error al obtener usuarios:', error);
@@ -12,13 +12,11 @@ async function getProductos(req, res) {
 }
 
 // Controlador para obtener todos los posts
-const getTipo = async (req, res) => {
+async function getType (req, res) {
   // ????name   localhost:4000/empresas?name=gustavo
-  //
-
   if (req.query.id) {
-      console.log(req.query.id)  //id = 6
-      const data = await getTipoID(req.query.id)   //empresa o un false
+      console.log(req.query.id);  //id = 6
+      const data = await getTypeById(req.query.id);   //empresa o un false
       if (data) {
           return res.json(data)
               }else {
@@ -31,7 +29,7 @@ const getTipo = async (req, res) => {
   try 
   { 
       
-   const tipo = await Tipo.findAll()
+   const tipo = await Type.findAll();
    res.json(tipo)
 
   } catch (error) {
@@ -40,10 +38,10 @@ const getTipo = async (req, res) => {
 }
 
 
-const getTipoID = async (id) => {
+async function getTypeById (id) {
    
         
-  const tipo = await Tipo.findAll({
+  const tipo = await Type.findAll({
       where: {
           id,
       }
@@ -54,7 +52,7 @@ const getTipoID = async (id) => {
 
 
 // Controlador para obtener todas las categorías
-async function getCategoria(req, res) {
+async function getCategory(req, res) {
   try {
     const categorias = await Category.findAll();
     res.status(200).json(categorias);
@@ -64,4 +62,4 @@ async function getCategoria(req, res) {
   }
 }
 
-module.exports = { getProductos, getTipo, getCategoria, getTipoID };
+module.exports = { getProducts, getType, getCategory, getTypeById };

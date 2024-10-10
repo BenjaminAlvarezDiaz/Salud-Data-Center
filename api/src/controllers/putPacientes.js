@@ -1,11 +1,11 @@
-const { Pacientes } = require("../db");
+const { Patient } = require("../db");
 
-async function updatePacientes(req, res) {
+async function updatePatients(req, res) {
   try {
     const pacientesId = req.query.id;
 
     // Buscar el pacientes por su ID
-    const pacientes = await Pacientes.findByPk(pacientesId);
+    const pacientes = await Patient.findByPk(pacientesId);
 
     if (pacientes) {
       pacientes.Nombre = req.body.Nombre; 
@@ -21,9 +21,9 @@ async function updatePacientes(req, res) {
    
       await pacientes.save();
 
-      return res.json({ message: 'Doctor actualizado correctamente', pacientes });
+      return res.json({ message: 'Paciente actualizado correctamente', pacientes });
     } else {
-      return res.status(404).json({ message: 'Doctor no encontrado' });
+      return res.status(404).json({ message: 'Paciente no encontrado' });
     }
   } catch (error) {
     console.error("Error al actualizar el pacientes:", error);
@@ -32,5 +32,5 @@ async function updatePacientes(req, res) {
 }
 
 module.exports = {
-  updatePacientes,
+  updatePatients,
 };

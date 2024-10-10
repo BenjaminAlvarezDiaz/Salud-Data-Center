@@ -1,14 +1,14 @@
-const { Empresas } = require("../db.js");
+const { Company } = require("../db.js");
 const { Doctor } = require("../db.js");
 
 //Consultar Empresas
 
-const getEmpresas = async (req, res) => {
+async function getCompany(req, res) {
   // ????name   localhost:4000/empresas?name=gustavo
 
   if (req.query.name) {
     console.log(req.query.name); //gustavo
-    const data = await getEmpresasName(req.query.name); //empresa o un false
+    const data = await getCompaniesByName(req.query.name); //empresa o un false
     if (data) {
       return res.json(data);
     } else {
@@ -20,7 +20,7 @@ const getEmpresas = async (req, res) => {
 
   if (req.query.id) {
     console.log(req.query.id); //id = 6
-    const data = await getEmpresasID(req.query.id); //empresa o un false
+    const data = await getCompaniesById(req.query.id); //empresa o un false
     if (data) {
       return res.json(data);
     } else {
@@ -32,7 +32,7 @@ const getEmpresas = async (req, res) => {
     const nombreusuario = req.query.nombreusuario;
     const contrasena = req.query.contrasena;
 
-    const empresaData = await authenticateEmpresa(nombreusuario, contrasena);
+    const empresaData = await authenticateCompany(nombreusuario, contrasena);
 
     if (empresaData) {
       return res.json({ empresaData, tipo: "empresa" });
@@ -49,7 +49,7 @@ const getEmpresas = async (req, res) => {
     }
   }
   try {
-    const empresas = await Empresas.findAll();
+    const empresas = await Company.findAll();
     res.json(empresas);
   } catch (error) {
     return res.status(500).json({ message: error.message });
@@ -58,8 +58,8 @@ const getEmpresas = async (req, res) => {
 
 //Consultar Empresas(name)
 
-const getEmpresasName = async (name) => {
-  const empresas = await Empresas.findAll({
+const getCompaniesByName = async (name) => {
+  const empresas = await Company.findAll({
     where: {
       name,
     },
@@ -67,8 +67,8 @@ const getEmpresasName = async (name) => {
   return empresas.length ? empresas : false;
 };
 
-const authenticateEmpresa = async (nombreusuario, contrasena) => {
-  const empresa = await Empresas.findOne({
+const authenticateCompany = async (nombreusuario, contrasena) => {
+  const empresa = await Company.findOne({
     where: {
       nombreusuario,
       contrasena,
@@ -87,8 +87,8 @@ const authenticateDoctor = async (nombreusuario, contrasena) => {
   return doctor ? doctor : null;
 };
 
-const getEmpresasID = async (id) => {
-  const empresas = await Empresas.findAll({
+const getCompaniesById = async (id) => {
+  const empresas = await Company.findAll({
     where: {
       id,
     },
@@ -102,7 +102,7 @@ async function verificarEmpresaPorCredenciales(req, res) {
     console.log(name, contrasena);
 
     if (name && contrasena) {
-      const empresas = await Empresas.findOne({ where: { name, contrasena } });
+      const empresas = await Company.findOne({ where: { name, contrasena } });
 
       if (empresas) {
         return res.json(empresas);
@@ -119,10 +119,10 @@ async function verificarEmpresaPorCredenciales(req, res) {
 }
 
 module.exports = {
-  getEmpresas,
-  getEmpresasName,
-  getEmpresasID,
+  getCompany,
+  getCompaniesByName,
+  getCompaniesById,
   authenticateDoctor,
-  authenticateEmpresa,
+  authenticateCompany,
   verificarEmpresaPorCredenciales,
 };

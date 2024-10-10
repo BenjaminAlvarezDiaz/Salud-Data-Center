@@ -1,13 +1,13 @@
-const { Empresas } = require ("../db.js");
+const { Company } = require ("../db.js");
 
 //Crear projecto
 
-const createEmpresas = async (req, res) => {
+const createCompany = async (req, res) => {
     const {name, nombreusuario, contrasena, contact, logo, url} = req.body
 
 try {
 
-    const newEmpresas = await Empresas.create({
+    const newCompany = await Company.create({
         name,
         nombreusuario,
         contrasena,
@@ -17,7 +17,7 @@ try {
 
     })
 
-res.json(newEmpresas)
+res.json(newCompany)
 
 } catch (error) {
     
@@ -27,4 +27,4 @@ res.json(newEmpresas)
 
 }
 
-module.exports = {createEmpresas}
+module.exports = {createCompany}

@@ -1,11 +1,11 @@
-const { Empresas } = require("../db");
+const { Company } = require("../db");
 
 
-async function DeleteEmpresas(req, res){
+async function DeleteCompanies(req, res){
 
     //eliminar por id
     if (req.query.id) {
-        const data = await DeleteEmpresasbyId(req.query.id);
+        const data = await DeleteCompaniesbyId(req.query.id);
         if (data) {
           return res.json(data);
         } else {
@@ -14,7 +14,7 @@ async function DeleteEmpresas(req, res){
     }
     //eliminar por nombre
     if (req.query.name) {
-        const data = await DeleteEmpresasByName(req.query.name);
+        const data = await DeleteCompaniesByName(req.query.name);
         if (data) {
           return res.json(data);
         } else {
@@ -24,16 +24,16 @@ async function DeleteEmpresas(req, res){
     
     
 }
-const DeleteEmpresasbyId = async(id) => {
-    const Empresa = await Empresas.destroy({
+const DeleteCompaniesbyId = async(id) => {
+    const Empresa = await Company.destroy({
 
         where : { id},
     });
     return Empresa.length ? Empresa : false;
 };
 
-const DeleteEmpresasByName = async(name) => {
-    const Empresa = await Empresas.destroy({
+const DeleteCompaniesByName = async(name) => {
+    const Empresa = await Company.destroy({
 
         where : { name },
     });
@@ -42,6 +42,6 @@ const DeleteEmpresasByName = async(name) => {
 
 
 
-module.exports = { DeleteEmpresasByName, DeleteEmpresasbyId, DeleteEmpresas}; 
+module.exports = { DeleteCompaniesByName, DeleteCompaniesbyId, DeleteCompanies}; 
 
 
