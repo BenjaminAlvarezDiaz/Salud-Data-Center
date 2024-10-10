@@ -1,15 +1,15 @@
-const { Productos, Tipo, Categoria } = require ("../db.js");
+const { Product, Type, Category } = require ("../db.js");
 
 //Crear projecto
 
-const createProductos = async (req, res) => {
-    const { TipoId, CategoriaId} = req.body
+async function createProducts (req, res) {
+    const { TypeId, CategoryId} = req.body
 
     try {
 
-    const newProductos = await Productos.create({
-        TipoId,
-        CategoriaId,
+    const newProductos = await Product.create({
+        TypeId,
+        CategoryId,
     })
 
     res.json(newProductos)
@@ -20,12 +20,12 @@ const createProductos = async (req, res) => {
 
 }
 
-const createTipo = async (req, res) => {
+const createType = async (req, res) => {
     const { marca, modelo, anio, precio, descripcion, ficha_tecnica, imagenes } = req.body
 
     try {
 
-    const newTipo = await Tipo.create({
+    const newTipo = await Type.create({
         marca,
         modelo,
         anio,
@@ -43,14 +43,14 @@ const createTipo = async (req, res) => {
 
 }
 
-const createCategoria = async (req, res) => {
-    const {tipo, nombre} = req.body
+async function createCategory (req, res) {
+    const {type, name} = req.body
 
     try {
 
-    const newCategoria = await Categoria.create({
-        tipo,
-        nombre,
+    const newCategoria = await Category.create({
+        type,
+        name,
     })
 
     res.json(newCategoria)
@@ -64,4 +64,4 @@ const createCategoria = async (req, res) => {
 
 
 
-module.exports = {createProductos, createTipo, createCategoria}
+module.exports = {createProducts, createType, createCategory}

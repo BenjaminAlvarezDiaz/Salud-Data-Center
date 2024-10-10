@@ -1,11 +1,11 @@
-const { Empresas } = require("../db");
+const { Company } = require("../db");
 
-async function updateEmpresa(req, res) {
+async function updateCompany(req, res) {
   try {
-    const EmpresasId = req.query.id;
+    const CompanyId = req.query.id;
 
     // Buscar el empresa por su ID
-    const empresa = await Empresas.findByPk(EmpresasId);
+    const empresa = await Company.findByPk(CompanyId);
 
     if (empresa) {
       empresa.name = req.body.name; 
@@ -26,5 +26,5 @@ async function updateEmpresa(req, res) {
 }
 
 module.exports = {
-  updateEmpresa,
+  updateCompany,
 };

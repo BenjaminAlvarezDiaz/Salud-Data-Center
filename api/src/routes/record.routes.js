@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const { postRecords } = require('../controllers/postRecords');
-const { getRecordById,getAllRecords } = require('../controllers/getRecords');
+const { getRecordById, getAllRecords } = require('../controllers/getRecords');
 
 const router = Router();
 

@@ -1,14 +1,14 @@
 const { Router } = require('express');
-const {getEmpresas, verificarEmpresaPorCredenciales} = require ("../controllers/getEmpresas.js");
-const {createEmpresas} = require("../controllers/postEmpresas.js");
-const { DeleteEmpresas } = require('../controllers/deleteEmpresas.js');
-const { updateEmpresa } = require('../controllers/putEmpresas.js');
-const router = Router()
+const { getCompany, verificarEmpresaPorCredenciales } = require ("../controllers/getEmpresas.js");
+const {createCompany} = require("../controllers/postEmpresas.js");
+const { DeleteCompanies } = require('../controllers/deleteEmpresas.js');
+const { updateCompany } = require('../controllers/putEmpresas.js');
+const router = Router();
 
-router.get('/', getEmpresas);
+router.get('/', getCompany);
 router.post('/search', verificarEmpresaPorCredenciales);
-router.post('/',createEmpresas);
-router.delete('/', DeleteEmpresas);
-router.put('/', updateEmpresa);
+router.post('/',createCompany);
+router.delete('/', DeleteCompanies);
+router.put('/', updateCompany);
 
 module.exports = router;

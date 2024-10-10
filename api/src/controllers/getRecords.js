@@ -1,4 +1,4 @@
-const { Records } = require("../db");
+const { Record } = require("../db");
 
 async function getRecordById(req, res) {
   const { id } = req.params;
@@ -7,7 +7,7 @@ async function getRecordById(req, res) {
     // Convertir el ID a un número antes de pasarlo a findByPk
     const recordId = parseInt(id);
 
-    const record = await Records.findByPk(recordId);
+    const record = await Record.findByPk(recordId);
 
     if (record) {
       return res.status(200).json(record);
@@ -22,7 +22,7 @@ async function getRecordById(req, res) {
 
 async function getAllRecords(req, res) {
   try {
-    const records = await Records.findAll();
+    const records = await Record.findAll();
     return res.status(200).json(records);
   } catch (error) {
     console.error("Error al obtener todos los registros:", error);

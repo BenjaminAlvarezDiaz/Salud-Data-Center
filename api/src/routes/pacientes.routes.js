@@ -1,15 +1,15 @@
 const { Router } = require('express');
-const { GetPacientes } = require('../controllers/getPacientes.js');
-const {  PostPacientes} = require('../controllers/postPacientes.js');
-const { DeletePacientes } = require('../controllers/deletePacientes.js');
-const { updatePacientes } = require('../controllers/putPacientes.js');
+const { GetPatients } = require('../controllers/getPacientes.js');
+const { PostPatients } = require('../controllers/postPacientes.js');
+const { DeletePatients } = require('../controllers/deletePacientes.js');
+const { updatePatients } = require('../controllers/putPacientes.js');
 
 
 const router = Router();
 
-router.post('/', PostPacientes);
-router.get('/', GetPacientes);
-router.delete('/', DeletePacientes);
-router.put('/', updatePacientes);
+router.post('/', GetPatients);
+router.get('/', PostPatients);
+router.delete('/', DeletePatients);
+router.put('/', updatePatients);
 
 module.exports = router;

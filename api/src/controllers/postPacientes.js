@@ -1,6 +1,6 @@
-const { Pacientes } = require('../db.js');
+const { Patient } = require('../db.js');
 
-async function PostPacientes(req, res) {
+async function PostPatients(req, res) {
     const {
       Nombre,
       Apellido,
@@ -14,7 +14,7 @@ async function PostPacientes(req, res) {
       Exp_Medico,
     } = req.body;
     try {
-      const NewPaciente = await Pacientes.create({
+      const NewPaciente = await Patient.create({
         Nombre,
         Apellido,
         Dni,
@@ -32,4 +32,4 @@ async function PostPacientes(req, res) {
     }
 }
   
-module.exports = {PostPacientes};
+module.exports = {PostPatients};
