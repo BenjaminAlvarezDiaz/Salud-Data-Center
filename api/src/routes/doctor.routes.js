@@ -8,8 +8,8 @@ const router = Router();
 
 router.get("/getDoctor",getDoctor);
 router.post("/search",verificarDoctorPorCredenciales);
-router.post("/", CreateDoctors);
-router.delete("/",DeleteDoctors);
+router.post("/createDoctor", CreateDoctors);
+router.delete("/deleteDoctor",DeleteDoctors);
 router.put("/",updateDoctor);
 
 module.exports = router;
