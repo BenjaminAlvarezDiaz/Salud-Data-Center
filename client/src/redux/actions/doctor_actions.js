@@ -33,5 +33,58 @@ export function getDoctors(userData){
 }
 
 export function postDoctors(userData){
-    return ;
+    return async (dispatch) => {
+        try {
+            const response = await axios.post('http://localhost:3001/Doctors/createDoctor', {
+                matricula: userData.matricula, 
+                nombreusuario: userData.nombreusuario, 
+                nombre: userData.nombre, 
+                contrasena: userData.contrasena, 
+                email: userData.email, 
+                dni: userData.dni,
+            });
+            console.log("Response obtenido", response);
+            const doctor = response.data;
+            if (doctor) {
+                //Dispara una accion de exito con los datos
+                dispatch({ type: LOGIN_SUCCESS, payload: doctor });
+            }else {
+                // Dispara una acción de error si no encontro al doctor
+                dispatch({ type: LOGIN_FAILURE, payload: "No se encontro al doctor" });
+            }
+            return response;
+        }catch (error) {
+            dispatch({ type: LOGIN_FAILURE, payload: error.message });
+            console.log("Response fallido");
+            return error;
+        }
+    };
+}
+
+export function deleteDoctor(userData){
+    return async (dispatch) => {
+        try {
+            const response = await axios.delete('http://localhost:3001/Doctors/deleteDoctor',
+                {
+                    params: {
+                        id: userData.id,
+                    }
+                }
+            );
+            console.log("Response obtenido", response);
+            const doctor = response.data;
+            if (doctor) {
+                //Dispara una accion de exito con los datos
+                dispatch({ type: LOGIN_SUCCESS, payload: doctor });
+            }else {
+                // Dispara una acción de error si no encontro al doctor
+                dispatch({ type: LOGIN_FAILURE, payload: "No se encontro al doctor" });
+            }
+            return response;
+        }catch (error) {
+            dispatch({ type: LOGIN_FAILURE, payload: error.message });
+            console.log("Response fallido");
+            return error;
+        }
+    }
 }

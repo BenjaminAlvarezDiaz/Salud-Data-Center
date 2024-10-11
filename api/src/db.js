@@ -68,12 +68,12 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 //EJEPLO: name de tablas relacionas
 
-const { Empresas } = sequelize.models;
+const { Company } = sequelize.models;
 const { Doctor } = sequelize.models;
-const { Pacientes } = sequelize.models;
-const { Productos } = sequelize.models;
-const { Tipo } = sequelize.models;
-const { Categoria } = sequelize.models;
+const { Patient } = sequelize.models;
+const { Product } = sequelize.models;
+const { Type } = sequelize.models;
+const { Category } = sequelize.models;
 const { Records } = sequelize.models;
 
 // Aca vendrian las relaciones
@@ -82,11 +82,11 @@ const { Records } = sequelize.models;
  // Asegúrate de ajustar la ubicación de tus modelos
 
 // Establece la relación
-Tipo.hasMany(Productos, { foreignKey: 'TipoId' });
-Productos.belongsTo(Tipo, { foreignKey: 'TipoId' });
+Type.hasMany(Product, { foreignKey: 'TipoId' });
+Product.belongsTo(Type, { foreignKey: 'TipoId' });
 
-Categoria.hasMany(Productos, { foreignKey: 'CategoriaId' });
-Productos.belongsTo(Categoria, { foreignKey: 'CategoriaId' });
+Category.hasMany(Product, { foreignKey: 'CategoriaId' });
+Product.belongsTo(Category, { foreignKey: 'CategoriaId' });
 
 // Product.hasMany(Reviews);
 
