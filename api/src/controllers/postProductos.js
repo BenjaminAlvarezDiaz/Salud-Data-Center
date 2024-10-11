@@ -28,7 +28,7 @@ const createType = async (req, res) => {
     const newTipo = await Type.create({
         marca,
         modelo,
-        anio,
+        año,
         precio,
         descripcion,
         ficha_tecnica,

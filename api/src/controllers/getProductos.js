@@ -3,8 +3,8 @@ const { Product, Type, Category } = require ("../db.js"); // Ajusta la ubicació
 // Controlador para obtener todos los usuarios
 async function getProducts(req, res) {
   try {
-    const productos = await Product.findAll();
-    res.status(200).json(productos);
+    const products = await Product.findAll();
+    res.status(200).json(products);
   } catch (error) {
     console.error('Error al obtener usuarios:', error);
     res.status(500).send('Error al obtener productos');

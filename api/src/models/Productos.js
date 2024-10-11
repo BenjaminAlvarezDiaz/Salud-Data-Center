@@ -7,9 +7,30 @@ module.exports = (sequelize) => {
       primaryKey: true,
       autoIncrement: true,
     },
+    marca: {
+        type: DataTypes.STRING,
+    },
+    modelo: {
+        type: DataTypes.STRING,
+    },
+    año:{
+        type:DataTypes.STRING,
+    },
+    precio: {
+        type: DataTypes.STRING,
+    },
+    descripcion: {
+        type: DataTypes.TEXT,
+    },
+    ficha_tecnica: {
+        type: DataTypes.STRING,
+    },
+    imagenes: {
+        type: DataTypes.STRING,
+    },
   },
-  {
-    timestamps: true,
-  }
+    {
+      timestamps: true,
+    }
 );
 };
