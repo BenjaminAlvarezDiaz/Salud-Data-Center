@@ -73,7 +73,8 @@ const { Doctor } = sequelize.models;
 const { Patient } = sequelize.models;
 const { Product } = sequelize.models;
 const { Category } = sequelize.models;
-const { Records } = sequelize.models;
+const { Record } = sequelize.models;
+const { Order } = sequelize.models;
 
 // Aca vendrian las relaciones
 
