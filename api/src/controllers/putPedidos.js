@@ -8,6 +8,10 @@ async function updateOrders(req, res){
 
         if (order) {
             order.estadoPedido = req.body.estadoPedido;
+
+            await order.save();
+            
+            return res.json({ message: 'Pedido actualizado correctamente', order });
         } else {
             return res.status(404).json({ message: 'Paciente no encontrado' });
         }
