@@ -72,7 +72,6 @@ const { Company } = sequelize.models;
 const { Doctor } = sequelize.models;
 const { Patient } = sequelize.models;
 const { Product } = sequelize.models;
-const { Type } = sequelize.models;
 const { Category } = sequelize.models;
 const { Records } = sequelize.models;
 
@@ -82,8 +81,6 @@ const { Records } = sequelize.models;
  // Asegúrate de ajustar la ubicación de tus modelos
 
 // Establece la relación
-Type.hasMany(Product, { foreignKey: 'TipoId' });
-Product.belongsTo(Type, { foreignKey: 'TipoId' });
 
 Category.hasMany(Product, { foreignKey: 'CategoriaId' });
 Product.belongsTo(Category, { foreignKey: 'CategoriaId' });

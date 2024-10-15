@@ -1,22 +1,12 @@
-const { Product, Type, Category } = require ("../db.js"); // Ajusta la ubicación de tus modelos
+const { Product, Category } = require ("../db.js"); // Ajusta la ubicación de tus modelos
 
-// Controlador para obtener todos los usuarios
-async function getProducts(req, res) {
-  try {
-    const productos = await Product.findAll();
-    res.status(200).json(productos);
-  } catch (error) {
-    console.error('Error al obtener usuarios:', error);
-    res.status(500).send('Error al obtener productos');
-  }
-}
 
 // Controlador para obtener todos los posts
-async function getType (req, res) {
+async function getProducts (req, res) {
   // ????name   localhost:4000/empresas?name=gustavo
   if (req.query.id) {
       console.log(req.query.id);  //id = 6
-      const data = await getTypeById(req.query.id);   //empresa o un false
+      const data = await getProductsById(req.query.id);   //empresa o un false
       if (data) {
           return res.json(data)
               }else {
@@ -29,16 +19,17 @@ async function getType (req, res) {
   try 
   { 
       
-   const tipo = await Type.findAll();
-   res.json(tipo)
+   const products = await Product.findAll();
+   res.status(200).json(products);
 
   } catch (error) {
-   return res.status(500).json({message: error.message})
+    console.error('Error al obtener usuarios:', error);
+    res.status(500).send('Error al obtener productos');
   }
 }
 
 
-async function getTypeById (id) {
+async function getProductsById (id) {
    
         
   const tipo = await Type.findAll({
@@ -62,4 +53,4 @@ async function getCategory(req, res) {
   }
 }
 
-module.exports = { getProducts, getType, getCategory, getTypeById };
+module.exports = { getProducts, getCategory, getProductsById };

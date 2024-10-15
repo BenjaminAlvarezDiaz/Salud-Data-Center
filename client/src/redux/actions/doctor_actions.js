@@ -1,6 +1,6 @@
 // doctor_actions.js
 import axios from "axios";
-import { LOGIN_SUCCESS, LOGIN_FAILURE } from '../const.js';
+import { LOGIN_SUCCESS, LOGIN_FAILURE } from '../const';
 
 export function getDoctors(userData){
     return async (dispatch) => {
