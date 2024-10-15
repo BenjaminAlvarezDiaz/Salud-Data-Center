@@ -44,10 +44,10 @@ async function getOrders (req, res){
     //Todos
     const pedidos = await Order.findAll();
     return res.json(pedidos);
-  } catch (error) {
-    console.error("Error al obtener los pedidos:", error);
-    return res.status(500).json({ error: "Error interno del servidor" });
-  }
+    } catch (error) {
+        console.error("Error al obtener los pedidos:", error);
+        return res.status(500).json({ error: "Error interno del servidor" });
+    }
 }
 
 async function getOrderById(id){
