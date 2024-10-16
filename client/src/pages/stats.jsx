@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import AppBar from '../components/AppBar/AppBar';
 import Sidebar from '../components/SideBar/Sidebar';
-import '../styles/Help.css';
+import '../styles/stats.css';
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { postProductos } from '../Redux/actions/Stats_actions';
+import LineChart from '../components/LineChart/LineChart';
 
 function Stats(){
     const [isSidebarOpen, setSidebarOpen] = useState(true);
@@ -51,13 +52,20 @@ function Stats(){
     }
 
     return(
-        <div className='main-container'>
+        <div className='stats-main-container'>
             <AppBar/>
-            <div className='content'>
-                <h1>
-                    Product
-                </h1>
-                <button onClick={createProductFunction}>Crear producto</button>
+            <div className='stats-content-Global'>
+            <div className='stats-content'>
+                <div className='stats-content-b'> Holis</div>
+                <div className='stats-content-b'>H</div>
+                <div className='stats-content-b'>o</div>
+            </div>
+            <div className='stats-LineChar'>
+                <LineChart/>
+            </div>
+            </div>
+            <div className='stats-content-c'>
+                Hola
             </div>
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         </div>

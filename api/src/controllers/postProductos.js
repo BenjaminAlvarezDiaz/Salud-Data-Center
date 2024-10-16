@@ -1,8 +1,8 @@
-const { Product, Category } = require ("../db.js");
+const { Product } = require ("../db.js");
 
 //Crear projecto
 
-async function CreateProduct (req, res) {
+async function postProduct (req, res) {
     const { CategoriaId, marca, modelo, año, precio, descripcion, ficha_tecnica, imagenes } = req.body
 
     try {
@@ -26,24 +26,5 @@ async function CreateProduct (req, res) {
 
 }
 
-async function createCategory (req, res) {
-    const {type, name} = req.body
 
-    try {
-
-    const newCategoria = await Category.create({
-        name,
-    })
-
-    res.json(newCategoria)
-
-    } catch (error) {
-        return res.status(500).json({message: error.message})
-    }
-
-}
-
-
-
-
-module.exports = {CreateProduct, createCategory}
+module.exports = {postProduct}

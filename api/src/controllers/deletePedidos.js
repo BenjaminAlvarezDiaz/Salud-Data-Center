@@ -5,7 +5,7 @@ async function deleteOrders (req, res) {
         //eliminar por id
         if(req.query.id){
             const data = await deleteOrderById(req.query.id);
-            console.log('aaaaaa');
+            console.log('eliminando pedido por id');
             if (data) {
                 return res.json(data);
             } else {
@@ -15,6 +15,7 @@ async function deleteOrders (req, res) {
 
         if(req.query.estadoPedido == 'paid'){
             const data = await deleteOrdersByStatus(req.query.estadoPedido);
+            console.log('eliminando pedido por estadoPedido "paid"');
             if (data){
                 return res.json(data);
             }else {
@@ -24,6 +25,7 @@ async function deleteOrders (req, res) {
         
         if (req.query.estadoPedido == 'canceled'){
             const data = await deleteOrdersByStatus(req.query.estadoPedido);
+            console.log('eliminando pedido por estadoPedido "canceled"');
             if (data){
                 return res.json(data);
             }else {
@@ -33,6 +35,7 @@ async function deleteOrders (req, res) {
     
         /*if (req.query.estadoPedido == 'process'){
             const data = await deleteOrdersByStatus(req.query.estadoPedido);
+            console.log('eliminando pedido por estadoPedido "process"');
             if (data){
                 return res.json(data);
             }else {

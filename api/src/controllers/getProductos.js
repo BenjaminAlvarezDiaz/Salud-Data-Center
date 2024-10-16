@@ -1,4 +1,4 @@
-const { Product, Category } = require ("../db.js"); // Ajusta la ubicación de tus modelos
+const { Product } = require ("../db.js"); // Ajusta la ubicación de tus modelos
 
 
 // Controlador para obtener todos los posts
@@ -43,14 +43,6 @@ async function getProductsById (id) {
 
 
 // Controlador para obtener todas las categorías
-async function getCategory(req, res) {
-  try {
-    const categorias = await Category.findAll();
-    res.status(200).json(categorias);
-  } catch (error) {
-    console.error('Error al obtener categorías:', error);
-    res.status(500).send('Error al obtener categorías');
-  }
-}
 
-module.exports = { getProducts, getCategory, getProductsById };
+
+module.exports = { getProducts, getProductsById };

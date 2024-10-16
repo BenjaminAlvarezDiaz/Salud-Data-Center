@@ -1,11 +1,11 @@
 const { Patient } = require("../db");
 
 
-async function DeletePatients(req, res){
+async function deletePatients(req, res){
 
     //eliminar por Nombre
     if (req.query.Nombre) {
-        const data = await DeletePatientsByName(req.query.Nombre);
+        const data = await deletePatientsByName(req.query.Nombre);
         if (data) {
           return res.json(data);
         } else {
@@ -14,7 +14,7 @@ async function DeletePatients(req, res){
     }
     //eliminar por dni
     if (req.query.Dni) {
-        const data = await DeletePatientsByDni(req.query.Dni);
+        const data = await deletePatientsByDni(req.query.Dni);
         if (data) {
           return res.json(data);
         } else {
@@ -23,7 +23,7 @@ async function DeletePatients(req, res){
     }
      //eliminar por apellido
     if (req.query.Apellido) {
-      const data = await DeletePatientsBySurname(req.query.Apellido);
+      const data = await deletePatientsBySurname(req.query.Apellido);
       if (data) {
         return res.json(data);
       } else {
@@ -35,18 +35,17 @@ async function DeletePatients(req, res){
 
   //eliminar por id
   if (req.query.id) {
-    const data = await DeletePatientsById(req.query.id);
+    const data = await deletePatientsById(req.query.id);
     if (data) {
       return res.json(data);
     } else {
       return res.status(404).json({ message: "No existe en la db" });
     }
-
-    
+  }
+  
 }
-}
 
-async function DeletePatientsByDni (Dni) {
+async function deletePatientsByDni (Dni) {
     const Paciente = await Patient.destroy({
 
         where : { Dni },
@@ -54,7 +53,7 @@ async function DeletePatientsByDni (Dni) {
     return Paciente.length ? Paciente : false;
 };
 
-const DeletePatientsByName = async(Nombre) => {
+const deletePatientsByName = async(Nombre) => {
     const Paciente = await Patient.destroy({
 
         where : { Nombre },
@@ -62,7 +61,7 @@ const DeletePatientsByName = async(Nombre) => {
     return Paciente.length ? Paciente : false;
 };
 
-const DeletePatientsBySurname = async(Apellido) => {
+const deletePatientsBySurname = async(Apellido) => {
   const Paciente = await Patient.destroy({
 
       where : { Apellido },
@@ -70,7 +69,7 @@ const DeletePatientsBySurname = async(Apellido) => {
   return Paciente.length ? Paciente : false;
 };
 
-const DeletePatientsById = async(id) => {
+const deletePatientsById = async(id) => {
     const Paciente = await Patient.destroy({
   
         where : { id },
@@ -78,5 +77,10 @@ const DeletePatientsById = async(id) => {
     return Paciente.length ? Paciente : false;
   };
 
-module.exports = { DeletePatients, 
-    DeletePatientsByDni, DeletePatientsByName, DeletePatientsBySurname, DeletePatientsById}
+module.exports = { 
+  deletePatients, 
+  deletePatientsByDni, 
+  deletePatientsByName, 
+  deletePatientsBySurname, 
+  deletePatientsById
+};

@@ -1,11 +1,11 @@
 const { Doctor } = require("../db");
 
 
-async function DeleteDoctors(req, res){
+async function deleteDoctors(req, res){
 
     //eliminar por id
     if (req.query.id) {
-        const data = await DeleteDoctorsById(req.query.id);
+        const data = await deleteDoctorsById(req.query.id);
         if (data) {
           return res.json(data);
         } else {
@@ -14,7 +14,7 @@ async function DeleteDoctors(req, res){
     }
     //eliminar por nombre
     if (req.query.nombre) {
-        const data = await DeleteDoctorsByName(req.query.nombre);
+        const data = await deleteDoctorsByName(req.query.nombre);
         if (data) {
           return res.json(data);
         } else {
@@ -24,7 +24,7 @@ async function DeleteDoctors(req, res){
     
     //eliminar por nombre de usuario
     if (req.query.nombreusuario) {
-      const data = await DeleteDoctorsByUsername(req.query.nombreusuario);
+      const data = await deleteDoctorsByUsername(req.query.nombreusuario);
       if (data) {
         return res.json(data);
       } else {
@@ -34,7 +34,7 @@ async function DeleteDoctors(req, res){
 
     
 }
-const DeleteDoctorsById = async(id) => {
+const deleteDoctorsById = async(id) => {
     const Doctores = await Doctor.destroy({
 
         where : { id},
@@ -42,7 +42,7 @@ const DeleteDoctorsById = async(id) => {
     return Doctores.length ? Doctores : false;
 };
 
-const DeleteDoctorsByName = async(nombre) => {
+const deleteDoctorsByName = async(nombre) => {
     const Doctores = await Doctor.destroy({
 
         where : { nombre },
@@ -50,7 +50,7 @@ const DeleteDoctorsByName = async(nombre) => {
     return Doctores.length ? Doctores : false;
 };
 
-const DeleteDoctorsByUsername = async(nombreusuario) => {
+const deleteDoctorsByUsername = async(nombreusuario) => {
   const Doctores = await Doctor.destroy({
 
       where : { nombreusuario },
@@ -58,6 +58,6 @@ const DeleteDoctorsByUsername = async(nombreusuario) => {
   return Doctores.length ? Doctores : false;
 };
 
-module.exports = { DeleteDoctors, DeleteDoctorsById, DeleteDoctorsByName, DeleteDoctorsByUsername}; 
+module.exports = { deleteDoctors, deleteDoctorsById, deleteDoctorsByName, deleteDoctorsByUsername}; 
 
 

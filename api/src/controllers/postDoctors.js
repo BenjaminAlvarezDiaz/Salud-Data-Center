@@ -2,7 +2,7 @@ const { Doctor } = require ("../db.js");
 
 //Crear projecto
 
-async function CreateDoctors (req, res) {
+async function createDoctors (req, res) {
     const {matricula, nombreusuario, nombre, contrasena, email, dni} = req.body
 
 try {
@@ -26,4 +26,4 @@ res.json(newDoctor)
 
 }
 
-module.exports = {CreateDoctors}
+module.exports = {createDoctors}

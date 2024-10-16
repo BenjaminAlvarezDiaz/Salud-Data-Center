@@ -4,7 +4,7 @@ async function deleteRecords (req, res){
     try {
         if(req.query.id){
             const data = await deleteRecordById(req.query.id);
-            console.log('aaaaaa');
+            console.log('eliminando registro por id');
             if (data) {
                 return res.json(data);
             } else {
@@ -14,6 +14,7 @@ async function deleteRecords (req, res){
 
         if(req.query.nombrepaciente){
             const data = await deleteRecordByParam(req.query.nombrepaciente);
+            console.log('eliminando registro por nombrepaciente');
             if (data) {
                 return res.json(data);
             } else {
@@ -23,6 +24,7 @@ async function deleteRecords (req, res){
 
         if(req.query.doctorasignado){
             const data = await deleteRecordByParam(req.query.doctorasignado);
+            console.log('eliminando registro por doctorasignado');
             if (data) {
                 return res.json(data);
             } else {
