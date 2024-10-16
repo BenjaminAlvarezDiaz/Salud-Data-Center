@@ -2,7 +2,7 @@ const { Company } = require ("../db.js");
 
 //Crear projecto
 
-const createCompany = async (req, res) => {
+async function createCompany (req, res) {
     const {name, nombreusuario, contrasena, contact, logo, url} = req.body
 
 try {

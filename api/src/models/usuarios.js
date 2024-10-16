@@ -52,6 +52,11 @@ module.exports = (sequelize) => {
       exp_Medico: {
         type: DataTypes.STRING,
       },
+
+      active: {
+        type: DataTypes.BOOLEAN,
+        defaultValue: true,
+      }
     },
 
     {

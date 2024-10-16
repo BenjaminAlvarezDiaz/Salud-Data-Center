@@ -74,6 +74,7 @@ const { Patient } = sequelize.models;
 const { Product } = sequelize.models;
 const { Category } = sequelize.models;
 const { Record } = sequelize.models;
+const { Appointment } = sequelize.models;
 const { Order } = sequelize.models;
 
 // Aca vendrian las relaciones

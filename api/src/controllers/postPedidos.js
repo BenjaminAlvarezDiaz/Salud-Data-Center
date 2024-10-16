@@ -1,6 +1,6 @@
 const { Order } = require('../db.js');
 
-async function PostOrders(req, res) {
+async function postOrders(req, res) {
     const {
       idCliente,
       idProducto,
@@ -20,4 +20,4 @@ async function PostOrders(req, res) {
     }
 }
   
-module.exports = {PostOrders};
+module.exports = {postOrders};
