@@ -13,7 +13,7 @@ module.exports = (sequelize) => {
         nombreusuario: {
             type: DataTypes.STRING
         },
-        contrasena: {
+        password: {
             type: DataTypes.STRING
         },
         contact:{
@@ -24,6 +24,9 @@ module.exports = (sequelize) => {
         },
         url:{
             type: DataTypes.STRING
+        },
+        email: {
+            type: DataTypes.STRING,
         },
     },
     {

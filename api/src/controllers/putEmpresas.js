@@ -12,7 +12,8 @@ async function updateCompany(req, res) {
       empresa.contact = req.body.contact; 
       empresa.logo = req.body.logo;
       empresa.url = req.body.url;  
-   
+      empresa.email = req.body.email;
+      
       await empresa.save();
 
       return res.json({ message: 'empresa actualizado correctamente', empresa });

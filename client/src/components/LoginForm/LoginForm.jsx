@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './LoginForm.css';
 
-function LoginForm() {
+function LoginForm({ onSubmit }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
@@ -19,6 +19,8 @@ function LoginForm() {
     console.log('Correo electrónico:', email);
     console.log('Contraseña:', password);
     
+    onSubmit(email, password);
+
     // Restablecer campos
     setEmail('');
     setPassword('');
@@ -44,7 +46,7 @@ function LoginForm() {
         <input
           htmlFor="password"
           className="credentials-input"
-          placeholder="Password"
+          placeholder="Contraseña"
           type="password"
           id="password"
           value={password}

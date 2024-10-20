@@ -28,7 +28,7 @@ async function getCompany(req, res) {
     }
   }
 
-  if (req.query.nombreusuario && req.query.contrasena) {
+  /*if (req.query.nombreusuario && req.query.contrasena) {
     const nombreusuario = req.query.nombreusuario;
     const contrasena = req.query.contrasena;
 
@@ -47,7 +47,7 @@ async function getCompany(req, res) {
           .json({ message: "No se ha encontrado tu usuario" });
       }
     }
-  }
+  }*/
   try {
     const empresas = await Company.findAll();
     res.json(empresas);
@@ -67,7 +67,7 @@ const getCompaniesByName = async (name) => {
   return empresas.length ? empresas : false;
 };
 
-const authenticateCompany = async (nombreusuario, contrasena) => {
+/*const authenticateCompany = async (nombreusuario, contrasena) => {
   const empresa = await Company.findOne({
     where: {
       nombreusuario,
@@ -85,7 +85,7 @@ const authenticateDoctor = async (nombreusuario, contrasena) => {
     },
   });
   return doctor ? doctor : null;
-};
+};*/
 
 const getCompaniesById = async (id) => {
   const empresas = await Company.findAll({
@@ -96,13 +96,13 @@ const getCompaniesById = async (id) => {
   return empresas.length ? empresas : false;
 };
 
-async function verificarEmpresaPorCredenciales(req, res) {
+async function authCompany(req, res) {
   try {
-    const { name, contrasena } = req.body;
-    console.log(name, contrasena);
+    const { email, password } = req.body;
+    console.log(email, password);
 
-    if (name && contrasena) {
-      const empresas = await Company.findOne({ where: { name, contrasena } });
+    if (email && password) {
+      const empresas = await Company.findOne({ where: { email, password } });
 
       if (empresas) {
         return res.json(empresas);
@@ -110,10 +110,10 @@ async function verificarEmpresaPorCredenciales(req, res) {
         return res.status(404).json({ message: "Credenciales de doctor no válidas" });
       }
     } else {
-      return res.status(400).json({ message: "Matricula y contraseña son obligatorias" });
+      return res.status(400).json({ message: "Email y contraseña son obligatorias" });
     }
   } catch (error) {
-    console.error("Error al verificar el doctor por credenciales:", error);
+    console.error("Error al verificar la empresa por credenciales:", error);
     return res.status(500).json({ error: "Error interno del servidor" });
   }
 }
@@ -122,7 +122,7 @@ module.exports = {
   getCompany,
   getCompaniesByName,
   getCompaniesById,
-  authenticateDoctor,
-  authenticateCompany,
-  verificarEmpresaPorCredenciales,
+  /*authenticateDoctor,
+  authenticateCompany,*/
+  authCompany,
 };

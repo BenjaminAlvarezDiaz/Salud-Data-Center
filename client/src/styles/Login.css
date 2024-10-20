@@ -1,0 +1,151 @@
+.login-main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.salud-data-center {
+    font-size: 32px;
+    font-weight: bold;
+    color: var(--default-text);
+    height: 40px;
+    width: 100%;
+    display: flex;
+    align-self: self-start;
+}
+
+@media (max-width: 400px) {
+    .salud-data-center {
+        flex-direction: column;
+        align-items: center;
+        font-size: 32px;
+        font-weight: bold;
+        color: var(--default-text);
+        height: 40px;
+        width: 100%;
+        display: flex;
+        align-self: self-start;
+    }
+}
+
+/*center {
+    
+}*/
+
+.entry-container{
+    padding-top: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    z-index: 1;
+    opacity: 1;
+}
+
+/* Estado inicial del nuevo contenido (fuera de la pantalla) */
+.auth-container {
+    padding-top: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    flex-grow: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+    z-index: 1;
+    opacity: 1;
+    transform: translateY(0);
+    transform: translateY(20px);
+}
+
+.separators {
+    display: flex;
+    width: 80%;
+    max-width: 280px;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.sized-box {
+    height: 3px;
+    width: 40%;
+    background-color: var(--grey5);
+    border-radius: 20px;
+}
+
+.quick-access {
+    width: 100%;
+    max-width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.divider {
+    height: 20px;
+}
+
+.legal-info {
+    display: flex;
+    width: 100%;
+    max-width: 280px;
+}
+
+.divider-vertical {
+    width: 3px;
+    height: 20px;
+    background-color: var(--grey5);
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 20px;
+}
+
+.terms-and-politics {
+    color: var(--accept);
+}
+
+/* Clases de transición */
+.slide-up {
+    opacity: 0;
+    z-index: 0;
+    transform: translateY(-20px);
+}
+
+.slide-in {
+    opacity: 1;
+    z-index: 2;
+    transform: translateY(0);
+}
+
+.buttons {
+    height: 80%;
+    width: 400px;
+}
+
+.buttons-divider {
+    height: 20px;
+}
+
+button {
+    width: 80%;
+    box-shadow: 0px 0px 5px var(--shadow-container);
+    color: var(--default-text);
+}
+
+h2 {
+    color: var(--default-text);
+}

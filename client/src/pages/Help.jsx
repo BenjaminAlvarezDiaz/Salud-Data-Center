@@ -5,6 +5,7 @@ import '../styles/Help.css';
 import { getDoctors } from '../redux/actions/doctor_actions';
 import { postDoctors } from '../redux/actions/doctor_actions';
 import { deleteDoctor } from '../redux/actions/doctor_actions';
+import { postCompany } from '../redux/actions/company_actions';
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
@@ -12,6 +13,7 @@ function Help(){
     const [isSidebarOpen, setSidebarOpen] = useState(true);
     var [idDoctorSearch, setId] = useState("");
     var newDoctor = {};
+    var newCompany = {};
     var idDoctorDelete;
     const toggleSidebar = () => {
         //alert('¡Me hiciste click!');
@@ -51,11 +53,11 @@ function Help(){
     async function createDoctorFunction (e) {
         e.preventDefault();
         newDoctor = {
-            matricula: "abcdef", 
-            nombreusuario: "juancito123", 
-            nombre: "juancito saladito", 
-            contrasena: "dsaqwe", 
-            email: "juancito123@gmail.com", 
+            matricula: "so", 
+            nombreusuario: "user", 
+            nombre: "benja", 
+            password: "123", 
+            email: "benja123@gmail.com", 
             dni: 1234234,
         };
         try {
@@ -64,6 +66,38 @@ function Help(){
             if(response && response.status === 200){
                 console.log("DOCTOR CREADO SATISFACTORIAMENTE");
                 console.log(response.nombre);
+            }else {
+                console.log("DATOS NO EXISTENTES");
+            }
+        }catch (error){
+            console.error("Error al crear el doctor: ", error);
+            if (error.response && error.response.status === 404) {
+                setError(
+                  "Error interno del servidor. Por favor, intenta de nuevo más tarde."
+                );
+            }else if (error.response.status === 400) {
+                setError("¡Doctor no creado, not found!");
+            }
+        }
+    }
+
+    async function createCompany (e) {
+        e.preventDefault();
+        newCompany = {
+            name: "WKB",
+            nombreusuario: "WKBGroup123",
+            password: 123,
+            contact: "WKBGroup@support.com",
+            logo: "asdasd",
+            url: "WKBGroup.com",
+            email: "WKBGroup@gmail.com",
+        };
+
+        try {
+            const response = await dispatch(postCompany(newCompany));
+            console.log("Status: " + response.status);
+            if(response && response.status === 200){
+                console.log("EMPRESA CREADA SATISFACTORIAMENTE");
             }else {
                 console.log("DATOS NO EXISTENTES");
             }
@@ -115,6 +149,10 @@ function Help(){
                 <button onClick={getDoctorFunction}>Obtener doctor</button>
                 <button onClick={createDoctorFunction}>Crear doctor</button>
                 <button onClick={deleteDoctorFunction}>Eliminar doctor</button>
+                <h1>
+                    Empresa
+                </h1>
+                <button onClick={createCompany}>Crear empresa</button>
             </div>
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         </div>
