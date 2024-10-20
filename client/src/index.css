@@ -27,8 +27,8 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
+  /*display: flex;
+  place-items: center;*/
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--background-color);
@@ -50,18 +50,27 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
-  border-color: #646cff;
+  border-color: var(--primary);
 }
-button:focus,
+
+button:active {
+  background-color: var(--primary);
+  color: var(--white);
+}
+
+/*button:focus,
 button:focus-visible {
+  background-color: var(--primary);
+  color: var(--white);
   outline: 4px auto -webkit-focus-ring-color;
-}
+}*/
 
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
-    background-color: #ffffff;
+    background-color: var(--background-color);
   }
   a:hover {
     color: #747bff;

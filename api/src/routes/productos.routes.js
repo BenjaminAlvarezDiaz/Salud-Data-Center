@@ -2,7 +2,7 @@ const { Router } = require('express');
 
 const { getProducts } = require ("../controllers/getProductos.js");
 
-const { CreateProduct } = require ('../controllers/postProductos.js')
+const { postProduct } = require ('../controllers/postProductos.js')
 
 
 
@@ -11,7 +11,7 @@ const router = Router()
 
 router.get('/getProducts', getProducts);
 
-router.post('/postProducts', CreateProduct);
+router.post('/postProducts', postProduct);
 
 
 module.exports = router;

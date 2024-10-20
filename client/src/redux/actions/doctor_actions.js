@@ -39,7 +39,7 @@ export function postDoctors(userData){
                 matricula: userData.matricula, 
                 nombreusuario: userData.nombreusuario, 
                 nombre: userData.nombre, 
-                contrasena: userData.contrasena, 
+                password: userData.password, 
                 email: userData.email, 
                 dni: userData.dni,
             });

@@ -1,0 +1,22 @@
+
+.facebook-login-style {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    /*justifyContent: 'center';*/
+}
+
+.icon-style {
+    padding-right : 10px;
+    align-self: center;
+}
+
+.label-facebook {
+    width: 100%;
+    align-self: center;
+}
+
+.facebook-login-style:active {
+    background-color: transparent;
+    color: #424242;
+}
