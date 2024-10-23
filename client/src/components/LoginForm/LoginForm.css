@@ -38,25 +38,25 @@
 
 .green-credential {
     color: #45a049;
+    cursor: pointer;
 }
   
 .accept-button {
     padding: 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
+    background-color: var(--white);
+    color: var(--default-text);
+    border-radius: 8px;
     cursor: pointer;
     width: 100%;
 }
 
 .accept-button:active {
-    background-color: #4CAF50;
-    color: white;
+    background-color: var(--primary);
+    color: var(--white);
 }
   
 .accept-button:hover {
-    background-color: #45a049;
+    border-color: var(--primary);
 }
   
 .error {

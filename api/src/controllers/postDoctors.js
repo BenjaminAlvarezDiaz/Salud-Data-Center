@@ -3,7 +3,7 @@ const { Doctor } = require ("../db.js");
 //Crear projecto
 
 async function createDoctors (req, res) {
-    const {matricula, nombreusuario, nombre, contrasena, email, dni} = req.body
+    const {matricula, nombreusuario, nombre, password, email, dni} = req.body
 
 try {
 
@@ -11,7 +11,7 @@ try {
         matricula,
         nombreusuario,
         nombre,
-        contrasena,
+        password,
         email,
         dni,
     })

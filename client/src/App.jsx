@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import Perfil_Empresa from "./pages/Perfil_Empresa"; // Agrega la importación
 import Help from "./pages/Help";
 import Stats from "./pages/stats";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/Perfil" element={<Perfil_Doctor />} />
         <Route path="/PerfilEmp" element={<Perfil_Empresa />} />
         <Route path="/Help" element={<Help />} />
+        <Route path="/SignUp" element = {<SignUp/>} />
       </Routes>
     </div>
   );

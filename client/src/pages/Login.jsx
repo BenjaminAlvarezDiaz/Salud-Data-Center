@@ -12,6 +12,8 @@ function Login(){
     const [loginType, setLoginType] = useState(null);
     var email = "";
     var password = "";
+    const [signUpPage, setSignUpPage] = useState('');
+    const [signUpPageOptions, setSignUpPageOptions] = useState({});
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -19,6 +21,13 @@ function Login(){
     function buttonClick (type){
         setShowAuthContainer(true);
         setLoginType(type);
+        if(type === "doctor"){
+            setSignUpPage("/SignUp");
+            setSignUpPageOptions({state: {signUpType: type}});
+        } else if (type === "company") {
+            setSignUpPage("/SignUp");
+            setSignUpPageOptions({state: {signUpType: type}});
+        }
     }
 
     function buttonBackClick (){
@@ -69,7 +78,7 @@ function Login(){
             {showAuthContainer && (
                 <div className= {`auth-container ${showAuthContainer ? 'slide-in' : 'slide-up'}`}>
                     <h2>Bienvenido</h2>
-                    <LoginForm onSubmit={buttonLoginClick}/>
+                    <LoginForm onSubmit={buttonLoginClick} createAccountPage={signUpPage} createAccountPageOptions={signUpPageOptions}/>
                     <div className='separators'>
                         <div className='sized-box'/>
                         o
