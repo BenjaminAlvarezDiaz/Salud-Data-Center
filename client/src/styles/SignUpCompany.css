@@ -1,0 +1,250 @@
+.company-sign-up-main-container-horizontal {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.company-sign-up-main-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sign-up-image-company {
+    width: 540px;
+    height: 90vh;
+    max-height: 100vh;
+    border-radius: 20px;
+}
+
+.company-sign-up-salud-data-center {
+    font-size: 32px;
+    padding-left: 20px;
+    font-weight: bold;
+    color: var(--default-text);
+    width: 100%;
+    display: flex;
+    align-self: self-start;
+}
+
+@media (max-width: 400px) {
+    .company-sign-up-salud-data-center {
+        padding-left: 0px;
+        flex-direction: column;
+        align-items: center;
+        font-size: 32px;
+        font-weight: bold;
+        color: var(--default-text);
+        width: 100%;
+        display: flex;
+        align-self: self-start;
+    }
+}
+
+@media (max-width: 900px) {
+    .sign-up-image-company {
+        width: 0px;
+        height: 0px;
+    }
+
+    .company-sign-up-main-container-horizontal {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
+
+@media (max-width: 1090px) {
+    .company-sign-up-login-form {
+        max-width: 280px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .company-sign-up-input {
+        padding: 15px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+        font-size: 16px;
+        max-width: 280px;
+    }
+
+    .company-sign-up-url-contact {
+        max-width: 280px;
+        display: flex;
+    }
+
+    .company-sign-up-url-contact-colum {
+        display: flex;
+        flex-direction: column;
+        max-width: 49%;
+    }
+
+    .company-sign-up-circular-items {
+        max-width: 280px;
+    }
+
+    .company-sign-up-circular-item-label {
+        height: 60px;
+    }
+}
+
+.company-sign-up-get-started {
+    padding-top: 40px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: var(--default-text);
+}
+
+.company-inputs-container {
+    padding-top: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    position: absolute;
+}
+
+.company-sign-up-inputs-error-image {
+    color: var(--cancel);
+    font-size: 16px;
+}
+
+.company-sign-up-inputs-error {
+    color: var(--cancel);
+    font-size: 16px;
+    text-align: left;
+}
+
+.company-sign-up-login-form {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.company-sign-up-next-back {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+.company-sign-up-container-button-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.company-sign-up-button-logo {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    padding: 15px;
+    display: flex;
+    border-radius: 100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.company-sign-up-photo {
+    /*padding-top: 70px;*/
+    padding-top: 10px;
+}
+
+.company-sign-up-container-edit {
+    padding-top: 18px;
+    padding-left: 100px;
+    border-radius: 20px;
+}
+
+.company-sign-up-edit {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    border-radius: 20px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--grey3);
+    color: var(--transparent);
+}
+
+.company-sign-up-input-logo {
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    opacity: 0;
+    border-radius: 100px;
+    cursor: pointer;
+}
+
+.material-icons.input-logo {
+    font-size: 36px;
+}
+
+.company-sign-up-input {
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.company-sign-up-input-two {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    
+}
+
+.company-sign-up-url-contact {
+    display: flex;
+    flex-direction: row;
+}
+
+.company-sign-up-url-contact-colum {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.company-sign-up-sized-box {
+    width: 10px;
+}
+
+.company-sign-up-circular-items {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-bottom: 10px;
+    gap: 10px;
+    width: 100%;
+}
+
+.company-sign-up-circular-item-label {
+    height: 80px;
+    width: 80px;
+    border-radius: 60px;
+    border: 2px solid var(--primary);
+    color: var(--default-text);
+    background-color: var(--white);
+    font-size: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+}
+
+.material-icons.circular-items {
+    font-size: 20px;
+}
