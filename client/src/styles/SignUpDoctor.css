@@ -1,14 +1,14 @@
-.sign-up-main-container {
+.doctor-sign-up-main-container-horizontal {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.doctor-sign-up-main-container {
     width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-}
-
-.sign-up-main-container-horizontal {
-    width: 100%;
-    display: flex;
     justify-content: space-between;
 }
 
@@ -46,13 +46,13 @@
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 900px) {
     .sign-up-image-doctor {
         width: 0px;
         height: 0px;
     }
 
-    .sign-up-main-container-horizontal {
+    .doctor-sign-up-main-container-horizontal {
         width: 100%;
         display: flex;
         align-items: center;
@@ -60,11 +60,11 @@
     }
 }
 
-.sign-up-get-started {
+.doctor-sign-up-get-started {
     padding-top: 20px;
 }
 
-.inputs-container {
+.doctor-inputs-container {
     padding-top: 160px;
     display: flex;
     flex-direction: column;
@@ -74,72 +74,73 @@
     position: absolute;
 }
 
-.sign-up-login-form {
-    max-width: 280px;
+.doctor-sign-up-login-form {
+    max-width: 100%;
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.input-two-data {
+.doctor-input-two-data {
     display: flex;
     width: 100%;
 }
 
-.sign-up-sized-box {
+.doctor-sign-up-sized-box-horizontal {
     width: 10px;
     color: var(--transparent);
 }
 
-.data {
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 10px;
+.doctor-sign-up-sized-box-vertical {
+    height: 10px;
+    color: var(--transparent);
 }
 
-.data-name-surname {
+.doctor-data {
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.doctor-data-name-surname {
+    padding: 15px;
+    width: 60%;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+@media (max-width: 1050px) {
+    .doctor-sign-up-login-form {
+        max-width: 280px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .doctor-data {
+        padding: 15px;
+        border: 2px solid #ccc;
+        border-radius: 10px;
+    }
+}
+
+.doctor-data-license-dni {
     padding: 15px;
     width: 40%;
     border: 1px solid #ccc;
     border-radius: 10px;
 }
 
-.data-license-dni {
-    padding: 15px;
-    width: 40%;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-}
-
-.data-logo-name-url-company {
+.doctor-sign-up-button-back {
     display: flex;
+    width: 50px;
+    height: 50px;
+    justify-content: center;
 }
 
-.data-logo {
-    width: 60px;
-    height: 60px;
-    position: relative;
-    padding: 15px;
-    display: flex;
-    align-items: center;
-    margin-left: 8px;
-}
-
-.data-logo-input {
-    width: 60px;
-    height: 60px;
-    position: absolute;
-    opacity: 0;
-}
-
-.data-name-url-company {
-    padding: 15px;
-    width: 80%;
-    border: 1px solid #ccc;
-    border-radius: 10px;
-}
-
-.sign-up-accept-button {
+.doctor-sign-up-button-next {
     padding: 10px;
     background-color: var(--white);
     color: var(--default-text);
@@ -149,11 +150,40 @@
     transition: border-color 0.25s;
 }
 
-.sign-up-accept-button:hover {
+.doctor-sign-up-buttons:hover {
     border-color: var(--primary);
 }
 
-.sign-up-accept-button:active {
+.doctor-sign-up-buttons:active {
     background-color: var(--primary);
     color: var(--white);
+}
+
+.doctor-sign-up-accept-button {
+    padding: 10px;
+    background-color: var(--white);
+    color: var(--default-text);
+    border-radius: 8px;
+    cursor: pointer;
+    width: 100%;
+    transition: border-color 0.25s;
+}
+
+.doctor-sign-up-accept-button:hover {
+    border-color: var(--primary);
+}
+
+.doctor-sign-up-accept-button:active {
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.doctor-sign-up-container-buttons {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.doctor-sign-up-container-back-get-started {
+    display: flex;
 }

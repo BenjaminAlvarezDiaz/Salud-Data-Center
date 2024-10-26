@@ -37,7 +37,7 @@ function SignUp (){
         if(signUpType === "doctor"){
             setNameSurnameDoctor(nameDoctor+surnameDoctor); 
         } else if (signUpType === "company"){
-            setNameCompany(nameCompany);
+            setNameCompany(name);
         }
         e.preventDefault();
 
@@ -257,10 +257,9 @@ function companyForm (
     email, 
     password, 
     confirmPassword){
-        console.log("yo");
     return (
         <div className="sign-up-main-container-horizontal">
-                <img className="sign-up-image-doctor" src="src\assets\doctor.jpg"/>
+                <img className="sign-up-image-doctor" src="src\assets\company.jpg"/>
                 <div className="sign-up-main-container">
                     <div className="sign-up-main-container">
                         <div className="salud-data-center">Salud Data Center</div>
@@ -268,32 +267,30 @@ function companyForm (
                         <div className="inputs-container">
                             <form onSubmit={signUpSubmit} className="sign-up-login-form">
                         {/*Nombre de empresa */}
-                        <input
-                            className="data"
-                            placeholder="logo"
-                            type="text"
-                            value={logo}
-                            onChange={logo}
-                            required
-                        />
-                        {/*Nombre de empresa */}
-                        <input
-                            className="data"
-                            placeholder="Nombre de la empresa"
-                            type="text"
-                            value={nameCompany}
-                            onChange={nameCompany}
-                            required
-                        />
-                        {/*Contacto de empresa */}
-                        <input
-                            className="data"
-                            placeholder="Contacto"
-                            type="text"
-                            value={contact}
-                            onChange={contact}
-                            required
-                        />
+                        <div className="data-logo-name-url-company">
+                            {/*Nombre de empresa */}
+                            <input
+                                className="data-name-url-company"
+                                placeholder="Nombre de la empresa"
+                                type="text"
+                                value={nameCompany}
+                                onChange={nameCompany}
+                                required
+                            />
+                            <button className="data-logo">
+                            <span className="material-icons">photo</span>
+                            <input
+                                className="data-logo-input"
+                                type="file" 
+                                accept="image/*"
+                                value={logo}
+                                onChange={logo}
+                                required
+                            />
+                            </button>
+                            
+                        </div>
+                        
                         {/*Url de empresa */}
                         <input
                             className="data"
@@ -301,6 +298,16 @@ function companyForm (
                             type="text"
                             value={url}
                             onChange={url}
+                            required
+                        />
+
+                        {/*Contacto de empresa */}
+                        <input
+                            className="data"
+                            placeholder="Contacto"
+                            type="text"
+                            value={contact}
+                            onChange={contact}
                             required
                         />
                         

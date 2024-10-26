@@ -22,11 +22,11 @@ function Login(){
         setShowAuthContainer(true);
         setLoginType(type);
         if(type === "doctor"){
-            setSignUpPage("/SignUp");
-            setSignUpPageOptions({state: {signUpType: type}});
+            setSignUpPage("/signupdoctor");
+            setSignUpPageOptions({state: null});
         } else if (type === "company") {
-            setSignUpPage("/SignUp");
-            setSignUpPageOptions({state: {signUpType: type}});
+            setSignUpPage("/signupcompany");
+            setSignUpPageOptions({state: null});
         }
     }
 
