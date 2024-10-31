@@ -33,13 +33,14 @@ export function getDoctors(userData){
 }
 
 export function postDoctors(userData){
+    console.log(userData.dni);
     return async (dispatch) => {
         try {
             const response = await axios.post('http://localhost:3001/Doctors/createDoctor', {
                 matricula: userData.matricula, 
                 nombreusuario: userData.nombreusuario, 
                 nombre: userData.nombre, 
-                contrasena: userData.contrasena, 
+                password: userData.password, 
                 email: userData.email, 
                 dni: userData.dni,
             });

@@ -95,13 +95,13 @@ async function getDoctorByUsername(userName) {
   }
 }
 
-async function verificarDoctorPorCredenciales(req, res) {
+async function authDoctor(req, res) {
   try {
-    const { matricula, contrasena } = req.body;
-    console.log(matricula, contrasena);
+    const { email, password } = req.body;
+    console.log(email, password);
 
-    if (matricula && contrasena) {
-      const doctor = await Doctor.findOne({ where: { matricula, contrasena } });
+    if (email && password) {
+      const doctor = await Doctor.findOne({ where: { email, password } });
 
       if (doctor) {
         return res.json(doctor);
@@ -109,7 +109,7 @@ async function verificarDoctorPorCredenciales(req, res) {
         return res.status(404).json({ message: "Credenciales de doctor no válidas" });
       }
     } else {
-      return res.status(400).json({ message: "Matricula y contraseña son obligatorias" });
+      return res.status(400).json({ message: "Email y contraseña son obligatorias" });
     }
   } catch (error) {
     console.error("Error al verificar el doctor por credenciales:", error);
@@ -123,5 +123,5 @@ module.exports = {
   getDoctorById,
   getDoctorByName,
   getDoctorByUsername,
-  verificarDoctorPorCredenciales,
+  authDoctor,
 };

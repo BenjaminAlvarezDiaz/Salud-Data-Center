@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import './LoginForm.css';
+import { useNavigate } from "react-router-dom";
 
-function LoginForm() {
+function LoginForm({ onSubmit, createAccountPage, createAccountPageOptions }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,11 +21,18 @@ function LoginForm() {
     console.log('Correo electrónico:', email);
     console.log('Contraseña:', password);
     
+    onSubmit(email, password);
+
     // Restablecer campos
     setEmail('');
     setPassword('');
     setError('');
   };
+
+  const createAccount = (e) => {
+    e.preventDefault();
+    navigate(createAccountPage, createAccountPageOptions);
+  }
 
   return (
     <div className="login-container">
@@ -44,7 +53,7 @@ function LoginForm() {
         <input
           htmlFor="password"
           className="credentials-input"
-          placeholder="Password"
+          placeholder="Contraseña"
           type="password"
           id="password"
           value={password}
@@ -59,7 +68,7 @@ function LoginForm() {
 
         <div className='credential'>
           ¿No tienes cuenta?
-          <div className='green-credential'>Crear cuenta</div>
+          <div className='green-credential' onClick={createAccount}>Crear cuenta</div>
         </div>
 
         {/* Mensaje de Error */}
