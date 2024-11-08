@@ -8,17 +8,18 @@ async function updatePatients(req, res) {
     const pacientes = await Patient.findByPk(pacientesId);
 
     if (pacientes) {
-      pacientes.Nombre = req.body.Nombre; 
-      pacientes.Apellido = req.body.Apellido; 
-      pacientes.Dni = req.body.Dni;
-      pacientes.Telefono = req.body.Telefono;  
-      pacientes.Telefono = req.body.Telefono; 
-      pacientes.Telefono2 = req.body.Telefono2;
-      pacientes.Sintomas = req.body.Sintomas;
-      pacientes.Tratamiento = req.body.Tratamiento;
-      pacientes.Diagnostico = req.body.Diagnostico; 
-      pacientes.Exp_Medico = req.body.Exp_Medico;              
-   
+      pacientes.nombre = req.body.nombre; 
+      pacientes.apellido = req.body.apellido; 
+      pacientes.dni = req.body.dni;
+      pacientes.age = req.body.age;
+      pacientes.telefono = req.body.telefono;  
+      pacientes.telefono2 = req.body.telefono2;
+      pacientes.sintomas = req.body.sintomas;
+      pacientes.tratamiento = req.body.tratamiento;
+      pacientes.diagnostico = req.body.diagnostico; 
+      pacientes.exp_Medico = req.body.exp_Medico;              
+      pacientes.suggestProduct = req.body.suggestProduct;
+
       await pacientes.save();
 
       return res.json({ message: 'Paciente actualizado correctamente', pacientes });

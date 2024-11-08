@@ -30,20 +30,19 @@ async function getPatients(req, res) {
   }
 }
 
-const getPatientsByName = async (Nombre) => {
+const getPatientsByName = async (nombre) => {
   const pacientes = await Patient.findAll({
-    where: { Nombre },
+    where: { nombre },
   });
 
   return pacientes.length ? pacientes : false;
 };
 
-const getPatientsBySurname = async (Apellido) => {
-  const pacientes = await Patient.findOne({
-    where: { Apellido },
+const getPatientsBySurname = async (apellido) => {
+  const pacientes = await Patient.findAll({
+    where: { apellido },
   });
-
-  return pacientes.length ? pacientes : false;
+  return pacientes ? pacientes : false;
 };
 
 module.exports = { getPatients, getPatientsByName, getPatientsBySurname };

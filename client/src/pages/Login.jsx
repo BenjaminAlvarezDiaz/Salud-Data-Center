@@ -46,7 +46,7 @@ function Login(){
         )
         .then(() => {
             if (loginType === "doctor") {
-                navigate("/Perfil");
+                navigate("/patients");
             } else if (loginType === "company") {
                 navigate("/PerfilEmp");
             }
@@ -67,9 +67,9 @@ function Login(){
                 <main className={`entry-container ${showAuthContainer ? 'slide-up' : 'slide-in'}`}>
                 <h2>¿Como desea ingresar?</h2>
                 <div className="buttons">
-                    <button onClick={() => buttonClick("doctor")}>Profesional medico</button>
+                    <button className="login-button" onClick={() => buttonClick("doctor")}>Profesional medico</button>
                     <div className="buttons-divider"/>
-                    <button onClick={() => buttonClick("company")}>Empresa</button>
+                    <button className="login-button" onClick={() => buttonClick("company")}>Empresa</button>
                     <div className="buttons-divider"/>
                 </div>
                 </main>

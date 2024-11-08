@@ -13,7 +13,7 @@ export function postCompany(userData){
                 url: userData.url,
                 email: userData.email,
             });
-            console.log("Response obtenido", response);
+            console.log("Response obtenido", response.data);
             const company = response.data;
             if (company) {
                 //Dispara una accion de exito con los datos

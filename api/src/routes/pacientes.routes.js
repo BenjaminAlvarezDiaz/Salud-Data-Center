@@ -7,9 +7,9 @@ const { updatePatients } = require('../controllers/putPacientes.js');
 
 const router = Router();
 
-router.post('/', getPatients);
-router.get('/', postPatients);
+router.get('/getPatients', getPatients);
+router.post('/postPatients', postPatients);
 router.delete('/', deletePatients);
-router.put('/', updatePatients);
+router.put('/updatePatients', updatePatients);
 
 module.exports = router;

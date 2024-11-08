@@ -13,7 +13,7 @@ module.exports = (sequelize) => {
     modelo: {
         type: DataTypes.STRING,
     },
-    año:{
+    anio:{
         type:DataTypes.STRING,
     },
     precio: {
