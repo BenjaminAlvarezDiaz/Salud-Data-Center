@@ -1,0 +1,119 @@
+.patients-main-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    gap: 20px;
+}
+
+.patients-list {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+    justify-content: center;
+}
+
+.patients-create-patient-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    display: flex;
+    padding: 10px;
+}
+
+.material-icons {
+    font-size: 30px;
+}
+
+.patient-card-short {
+    width: 130px;
+    height: 80px;
+    border-radius: 20px;
+}
+
+.patient-card-short-button {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    color: var(--default-text);
+    background-color: var(--white);
+}
+
+.patient-card-short-button:hover {
+    border-color: var(--white);
+}
+  
+.patient-card-short-button:active {
+    background-color: var(--white);
+    color: var(--default-text);
+}
+
+.patient-card-short-data {
+    font-size: 16px;
+}
+
+.patient-card-tall {
+    width: 130px;
+    height: 200px;
+    color: var(--default-text);
+    background-color: var(--white);
+    box-shadow: 0px 0px 5px var(--shadow-container);
+    border-radius: 20px;
+}
+
+.patient-card-tall-button {
+    width: 100%;
+    height: 40%;
+    border-radius: 20px;
+    color: var(--default-text);
+    background-color: var(--white);
+    box-shadow: 0px 0px 0px var(--transparent);
+}
+
+.patient-card-tall-button:hover {
+    border-color: var(--white);
+}
+  
+.patient-card-tall-button:active {
+    background-color: var(--white);
+    color: var(--default-text);
+}
+
+.patient-card-tall-resume {
+    height: 60%;
+    width: 100%;
+}
+
+.patient-card-tall-resume-data {
+    display: flex;
+    gap: 5px;
+    padding-left: 5px;
+    font-size: 14px;
+}
+
+.material-icons.resume-data {
+    font-size: 20px;
+}
+
+.patient-card-tall-button-down {
+    width: 80%;
+    height: 20%;
+    border-radius: 20px;
+    color: var(--default-text);
+    background-color: var(--white);
+    box-shadow: 0px 0px 0px var(--transparent);
+    font-size: 14px;
+}
+
+.patient-card-tall-button-down:hover {
+    border-color: var(--white);
+}
+  
+.patient-card-tall-button-down:active {
+    background-color: var(--white);
+    color: var(--default-text);
+}

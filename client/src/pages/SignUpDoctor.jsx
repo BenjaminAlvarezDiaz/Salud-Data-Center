@@ -36,7 +36,13 @@ function SignUpDoctor (){
             dni: dni,
         };
 
-        dispatch(postDoctors(newDoctor))
+        dispatch(postDoctors(newDoctor)
+        )
+        .then(() => {
+            if(matricula && nombreusuario && nombre && password && email && dni){
+                //navigate("/patients");
+            }
+        })
         .catch((error) => {
             console.error("Error al verificar usuario:", error);
             if (error.response && error.response.status === 404) {
@@ -109,6 +115,7 @@ function doctorForm (
                         <div className="doctor-inputs-container">
                             <form onSubmit={signUpSubmit} className="doctor-sign-up-login-form">
                             { !nextData && (basicDataDoctor(
+                                nextData,
                                 surnameDoctor, 
                                 nameDoctor, 
                                 matricula, 
@@ -160,8 +167,8 @@ function headers (){
 }
 
 function basicDataDoctor (
-    surnameDoctor, 
     nextData,
+    surnameDoctor, 
     nameDoctor, 
     matricula, 
     dni, 
@@ -183,7 +190,7 @@ function basicDataDoctor (
                         onChange={(e) => setSurnameDoctor(e.target.value)}
                         required
                     />
-                    {!surnameDoctor && nextData &&(<div>Surname vacioooooooo</div>)}
+                    {!surnameDoctor && nextData && (<div>Surname vacioooooooo</div>)}
                 <div className="doctor-sign-up-sized-box-horizontal"/>
                     <input
                         className="doctor-data-name-surname"

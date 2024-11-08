@@ -40,13 +40,7 @@ function SignUpCompany (){
         if(nombreusuario && email && password && confirmPassword){
             //Solo cuando los datos estan seteados se manda el post
             setNoDataInput(false);
-            dispatch(postCompany(newCompany))
-            .then((error) => {
-                console.error("Error al verificar usuario:", error);
-                if (error.response && error.response.status === 404) {
-                    alert("No existe un doctor con esas credenciales.");
-                }
-            });
+            dispatch(postCompany(newCompany));
         } else if(!nombreusuario && !email && !password && !confirmPassword) {
             setNoDataInput(true);
         }
@@ -239,8 +233,10 @@ function advancedDataCompany (
                 {/*Email de empresa */}
                 <input
                     className="company-sign-up-input"
+                    htmlFor="email"
                     placeholder="Email"
-                    type="text"
+                    type="email"
+                    id="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                 />
@@ -251,8 +247,10 @@ function advancedDataCompany (
                     <div className="company-sign-up-url-contact-colum">
                         <input
                             className="company-sign-up-input-two"
+                            htmlFor="password"
                             placeholder="Contraseña"
-                            type="text"
+                            type="password"
+                            id="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
@@ -264,8 +262,10 @@ function advancedDataCompany (
                     <div className="company-sign-up-url-contact-colum">
                         <input
                             className="company-sign-up-input-two"
+                            htmlFor="password"
                             placeholder="Confirmar contraseña"
-                            type="text"
+                            type="password"
+                            id="confirmPassword"
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         />

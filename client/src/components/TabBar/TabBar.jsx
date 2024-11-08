@@ -1,29 +1,35 @@
 import React from 'react';
 import './TabBar.css';
 
-function TabBar (){
+function TabBar ({ items }){
+    const itemsDefault = [
+        {href: "#home", icon: "home",},
+        {href: "#notifications", icon: "notifications",},
+        {href: "#search", icon: "search",},
+        {href: "#profile", icon: "person",},
+        {href: "#aboutme", icon: "note",},
+    ];
     return (
         <div className='tabBar'>
             <nav>
                 <ul>
-                    <li>
-                        <a href="#home"><span className="material-icons">home</span></a>
-                    </li>
-                    <li>
-                        <a href="#notifications"><span className="material-icons">notifications</span></a>
-                    </li>
-                    <li>
-                        <a href="#search"><span className="material-icons">search</span></a>
-                    </li>
-                    <li>
-                        <a href="#profile"><span className="material-icons">person</span></a>
-                    </li>
-                    <li>
-                        <a href="#about"><span className="material-icons">info</span></a>
-                    </li>
+                    {items? items.map((item, index) => (
+                        <Item key={index} href={item.href} icon={item.icon}/>
+                    )) : 
+                    itemsDefault.map((item, index) => (
+                        <Item key={index} href={item.href} icon={item.icon}/>
+                    ))}
                 </ul>
             </nav>
         </div>
+    );
+}
+
+function Item ({href, icon}){
+    return (
+        <li>
+            <a href={href}><span className="material-icons">{icon}</span></a>
+        </li>
     );
 }
 

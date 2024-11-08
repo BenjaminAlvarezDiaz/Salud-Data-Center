@@ -1,0 +1,71 @@
+
+.patient-create-main-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+
+.patient-create-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-self: center;
+    color: var(--red);
+}
+
+.patient-create-advanced-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-self: center;
+    color: var(--red);
+    width: 280px;
+}
+
+.patient-create-next-back {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+.patient-create-button {
+    width: 120px;
+}
+
+.patient-create-input {
+    padding: 15px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.patient-create-dni-age {
+    gap: 10px;
+    display: flex;
+    max-width: 280px;
+}
+
+.patient-create-dni-age-colum {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.patient-create-input-two {
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 16px;
+    width: 82%;
+}
+
+.patient-create-inputs-error {
+    color: var(--cancel);
+    font-size: 16px;
+    text-align: left;
+}

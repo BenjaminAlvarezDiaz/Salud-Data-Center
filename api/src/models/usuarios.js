@@ -25,16 +25,20 @@ module.exports = (sequelize) => {
         type: DataTypes.INTEGER,
       },
 
+      age: {
+        type: DataTypes.INTEGER,
+      },
+
       email: {
         type: DataTypes.STRING,
       },
 
       telefono: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
 
       telefono2: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
       },
 
       sintomas: {
@@ -52,11 +56,16 @@ module.exports = (sequelize) => {
       exp_Medico: {
         type: DataTypes.STRING,
       },
+      
+      suggestProduct: {
+        type: DataTypes.INTEGER,
+      },
 
       active: {
         type: DataTypes.BOOLEAN,
         defaultValue: true,
       }
+      
     },
 
     {
