@@ -1,0 +1,89 @@
+.patient-profile-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--default-text);
+}
+
+.material-icons.patient-profile-icon {
+    font-size: 30px;
+}
+
+.patient-profile-item {
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.patient-profile-item-horizontal {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.patient-profile-icon-data {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+}
+
+.patient-profile-data-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: 4px solid #ccc;
+    padding: 5px;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.patient-profile-button {
+    border: 0px;
+    border-radius: 15px;
+    background-color: var(--transparent);
+    color: var(--default-text);
+    box-shadow: 0px 0px 0px;
+}
+
+.patient-profile-button:hover {
+    border: 0px;
+}
+
+.patient-profile-button:active {
+    background-color: var(--transparent);
+    color: var(--default-text);
+}
+
+.patient-profile-data {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.patient-profile-label {
+    font-size: 14px;
+}
+
+.patient-profile-label-data {
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.patient-profile-main-button {
+    margin-top: 20px;
+    border-radius: 10px;
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+.patient-profile-main-button:hover {
+    border-color: var(--primary);
+}
+
+.patient-profile-main-button:active {
+    background-color: var(--primary);
+    color: var(--white);
+}

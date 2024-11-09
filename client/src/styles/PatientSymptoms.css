@@ -1,0 +1,14 @@
+.patient-symptoms-main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: var(--default-text);
+}
+
+.patient-symptoms-description {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    color: var(--default-text);
+}

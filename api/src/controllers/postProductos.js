@@ -3,7 +3,7 @@ const { Product } = require ("../db.js");
 //Crear projecto
 
 async function postProduct (req, res) {
-    const { CategoriaId, marca, modelo, año, precio, descripcion, ficha_tecnica, imagenes } = req.body
+    const { CategoriaId, marca, modelo, anio, precio, descripcion, ficha_tecnica, imagenes } = req.body
 
     try {
 
@@ -11,7 +11,7 @@ async function postProduct (req, res) {
         CategoriaId,
         marca,
         modelo,
-        año,
+        anio,
         precio,
         descripcion,
         ficha_tecnica,

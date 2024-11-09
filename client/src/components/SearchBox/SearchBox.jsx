@@ -14,6 +14,11 @@ function SearchBox({ placeHolder, data }){
         );
 
         setFilteredData(filteredSuggestions);
+
+        if(event.target.value.length == 0){
+            setQuery('');
+            setFilteredData([]);
+        }
     };
 
     const clearInput = () => {
@@ -29,7 +34,7 @@ function SearchBox({ placeHolder, data }){
         <div className="search">
             <div className="search-input">
                 <button className="search-btn" onClick={searchInput}>
-                    <span className="material-icons">search</span>
+                    <span className="material-icons , search-icon">search</span>
                 </button>
                 <input
                     type="text"

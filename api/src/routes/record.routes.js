@@ -4,8 +4,8 @@ const { getRecordById, getAllRecords } = require('../controllers/getRecords');
 
 const router = Router();
 
-router.post("/",postRecords);
+router.post("/postRecords",postRecords);
 router.get("/:id",getRecordById);
-router.get("/",getAllRecords);
+router.get("/getAllRecords",getAllRecords);
 
 module.exports = router;
