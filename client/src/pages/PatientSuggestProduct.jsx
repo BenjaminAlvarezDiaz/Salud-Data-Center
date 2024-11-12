@@ -3,6 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import SearchBox from "../components/SearchBox/SearchBox";
 import { getProducts, postProducts } from "../redux/actions/product_actions";
+import { putPatients } from "../redux/actions/patient_actions";
 import "../styles/PatientSuggestProduct.css";
 
 function PatientSuggestProduct (){
@@ -12,18 +13,21 @@ function PatientSuggestProduct (){
     const [ searchArray, setSearchArray ] = useState([]);
     const [suggestProducts, setSuggestProducts] = useState([]);
     const [ patient, setPatient ] = useState(location.state || {});
+    const [filteredItems, setFilteredItems] = useState([]);
+    const [ data, setData ] = useState([]);
 
     var product = {id:null};
-    var suggestProduct = {id:patient.suggestProduct};
+    var suggestProduct = {id:patient.patient.suggestProduct};
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const dispatchProducts = async (product, suggestProduct) => {
+        console.log(suggestProduct);
         try {
             const result = await dispatch(getProducts(product));
             setProducts(result.data);
-            setSearchArray(Object.values(result.data).map(item => item.modelo));
+            setSearchArray(Object.values(result.data).map(item => item.modelo + " " + item.marca));
             const suggestResult = await dispatch(getProducts(suggestProduct));
             setSuggestProducts(suggestResult.data);
         } catch (error) {
@@ -37,6 +41,13 @@ function PatientSuggestProduct (){
     useEffect(() => {
         dispatchProducts(product, suggestProduct);
     }, []);
+
+    const onFilter = (filteredData) => {
+        setFilteredItems(filteredData); // Guarda los datos filtrados en el estado del componente padre
+        /*console.log(searchArray.filter(item => item.toLowerCase().includes(filteredItems)));*/
+        console.log(filteredData);
+        /*setData(searchArray.filter(item => item.toLowerCase().includes(filteredItems)));*/
+    };
 
     /*const createProduct = async () => {
         var newProduct = {
@@ -83,23 +94,42 @@ function PatientSuggestProduct (){
         <div className="patient-suggest-product-main-container">
             <h3>Producto</h3>
             <div className="patient-suggest-product-second-container">
-                <SearchBox placeHolder={"Buscar producto"} data={searchArray}/>
+                <SearchBox placeHolder={"Buscar producto"} data={searchArray} onFilter={onFilter}/>
                 <div className="patient-suggest-product-list">
-                    {products.map((item, index) => (
-                        <ProductCard
-                            key = {index}
-                            title = {item.modelo + " " + item.marca}
-                            subTitle = { "$" + item.precio}
-                            description = {item.descripcion}
-                        />
-                    ))}
+                    {filteredItems.length > 0? 
+                        (products.map((item, index) => (
+                            filteredItems == item.modelo + " " + item.marca ||
+                            filteredItems == item.modelo + item.marca || 
+                            filteredItems == item.modelo || 
+                            filteredItems == item.marca? 
+                            <ProductCard
+                                key = {index}
+                                patient = {patient}
+                                id = {item.id}
+                                title = {item.modelo + " " + item.marca}
+                                subTitle = {"$" + item.precio}
+                                description = {item.descripcion}
+                            /> : null
+                        )))
+                    : 
+                        (products.map((item, index) => (
+                            <ProductCard
+                                key = {index}
+                                patient = {patient}
+                                id = {item.id}
+                                title = {item.modelo + " " + item.marca}
+                                subTitle = {"$" + item.precio}
+                                description = {item.descripcion}
+                            />
+                        )))
+                    }
                 </div>
                 <div className="patient-suggest-product-buttons">
                     <button className="patient-suggest-product-button" onClick={onClickCancel}>Cancelar</button>
                     <button className="patient-suggest-product-button" onClick={() => {onClickConfirm(patient)}}>Confirmar</button>
                 </div>
                 <div className="patient-suggest-product-suggest-label">Producto recomendado:</div>
-                <div className="patient-suggest-product-list">
+                {suggestProduct.id? <div className="patient-suggest-product-list">
                     {suggestProducts.map((item, index) => (
                         <ProductCard
                             key = {index}
@@ -108,23 +138,65 @@ function PatientSuggestProduct (){
                             description = {item.descripcion}
                         />
                     ))}
-                </div>
+                </div> : (<div>No hay productos aún</div>)}
             </div>
         </div>
     );
 }
 
-function ProductCard ({title, subTitle, description}){
+function ProductCard ({patient, id, title, subTitle, description}){
+
+    const dispatch = useDispatch();
+
+    const suggestProductCardOnClick = (id) => {
+        console.log(id);
+        var newPatient = {
+            id: patient.patient.id,
+            nombre: patient.patient.nombre,
+            apellido: patient.patient.apellido,
+            dni: patient.patient.dni,
+            age: patient.patient.age,
+            email: patient.patient.email,
+            telefono: patient.patient.telefono,
+            telefono2: patient.patient.telefono2,
+            sintomas: patient.patient.sintomas,
+            tratamiento: patient.patient.tratamiento,
+            diagnostico: patient.patient.diagnostico,
+            exp_Medico: patient.patient.exp_Medico,
+            suggestProduct: id,
+        };
+        /*console.log(newPatient);*/
+        dispatch(putPatients(newPatient));
+    }
+
     return (
-        <div className="patient-suggest-product-card">
-            <div className="patient-suggest-product-image"><span className="material-icons">image</span></div>
-            <div className="patient-suggest-product-card-label">
-                <div className="patient-suggest-product-card-title">{(title)}</div>
-                <div>{(subTitle)}</div>
-                {(description)}
+        <button className="patient-suggest-product-card-button" onClick={() => {id? suggestProductCardOnClick(id) : null}}>
+            <div className="patient-suggest-product-card">
+                <div className="patient-suggest-product-image"><span className="material-icons">image</span></div>
+                <div className="patient-suggest-product-card-label">
+                    <div className="patient-suggest-product-card-title">{(title)}</div>
+                    <div>{(subTitle)}</div>
+                    {(description)}
+                </div>
             </div>
-        </div>
+        </button>
     );
 }
+
+/* {products.map((item, index) => (
+                        (filteredItems === item.modelo + item.marca || 
+                            filteredItems === item.modelo + " " + item.marca || 
+                            filteredItems === item.modelo || filteredItems === item.marca? 
+                        (
+                            <ProductCard
+                                key = {index}
+                                patient = {patient}
+                                id = {item.id}
+                                title = {item.modelo + " " + item.marca}
+                                subTitle = { "$" + item.precio}
+                                description = {item.descripcion}
+                            />
+                        ) : null)
+                    ))}*/
 
 export default PatientSuggestProduct;

@@ -3,21 +3,21 @@ import './TabBar.css';
 
 function TabBar ({ items }){
     const itemsDefault = [
-        {href: "#home", icon: "home",},
-        {href: "#notifications", icon: "notifications",},
-        {href: "#search", icon: "search",},
-        {href: "#profile", icon: "person",},
-        {href: "#aboutme", icon: "note",},
+        {href: "#home", icon: "home", isActive: null},
+        {href: "#notifications", icon: "notifications", isActive: null},
+        {href: "#search", icon: "search", isActive: null},
+        {href: "#profile", icon: "person", isActive: null},
+        {href: "#aboutme", icon: "note", isActive: null},
     ];
     return (
         <div className='tabBar'>
             <nav>
                 <ul>
                     {items? items.map((item, index) => (
-                        <Item key={index} href={item.href} icon={item.icon}/>
+                        <Item key={index} href={item.href} icon={item.icon} isActive={item.isActive}/>
                     )) : 
                     itemsDefault.map((item, index) => (
-                        <Item key={index} href={item.href} icon={item.icon}/>
+                        <Item key={index} href={item.href} icon={item.icon} isActive={item.isActive}/>
                     ))}
                 </ul>
             </nav>
@@ -25,10 +25,14 @@ function TabBar ({ items }){
     );
 }
 
-function Item ({href, icon}){
+function Item ({href, icon, isActive}){
     return (
         <li>
-            <a href={href}><span className="material-icons">{icon}</span></a>
+            <a href={href}>{isActive? 
+                <span className="material-icons item-icon-active">{icon}</span> 
+                : 
+                <span className="material-icons item-icon-inactive">{icon}</span>}
+            </a>
         </li>
     );
 }

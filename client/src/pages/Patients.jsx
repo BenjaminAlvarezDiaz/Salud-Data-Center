@@ -11,7 +11,7 @@ function Patients (){
     var newPatient = {};
     const tabBarItems = [
         {href: "/doctorProfile", icon: "person"},
-        {href: "/patients", icon: "group"},
+        {href: "/patients", icon: "group", isActive: true},
         {href: "/dates", icon: "event_note"},
         {href: "/records", icon: "receipt"},
     ];

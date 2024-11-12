@@ -5,7 +5,9 @@ import {
     GET_PATIENTS_FAILURE, 
     GET_PATIENTS_SUCCESS,
     POST_PATIENTS_SUCCESS,
-    POST_PATIENTS_FAILURE
+    POST_PATIENTS_FAILURE,
+    PUT_PATIENTS_SUCCESS,
+    PUT_PATIENTS_FAILURE,
 } from '../const';
 
 export function getPatients(userData){
@@ -77,6 +79,7 @@ export function postPatients(userData){
 }
 
 export function putPatients(userData){
+    console.log(userData.id);
     return async (dispatch) => {
         try {
             const response = await axios.put('http://localhost:3001/Patient/updatePatients', {
@@ -91,20 +94,21 @@ export function putPatients(userData){
                 tratamiento: userData.tratamiento,
                 diagnostico: userData.diagnostico,
                 exp_Medico: userData.exp_Medico,
-            });
+                suggestProduct: userData.suggestProduct,
+            }, {params: {id: userData.id}});
             console.log("Response obtenido", response);
             const patient = response.data;
             if (patient) {
                 //Dispara una accion de exito con los datos
-                dispatch({ type: LOGIN_SUCCESS, payload: patient });
+                dispatch({ type: PUT_PATIENTS_SUCCESS, payload: patient });
             }else {
                 // Dispara una acción de error si no encontro al paciente
-                dispatch({ type: LOGIN_FAILURE, payload: "No se encontro al paciente" });
+                dispatch({ type: PUT_PATIENTS_SUCCESS, payload: "No se encontro al paciente" });
             }
             return response;
             
         } catch (error) {
-            dispatch({ type: LOGIN_FAILURE, payload: error.message });
+            dispatch({ type: PUT_PATIENTS_FAILURE, payload: error.message });
             console.log("Response fallido");
             return error;
         }
