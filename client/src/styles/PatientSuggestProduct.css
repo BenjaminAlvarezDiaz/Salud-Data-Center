@@ -50,6 +50,21 @@
     color: var(--default-text);
 }
 
+.patient-suggest-product-card-button {
+    padding: 5px;
+    background-color: var(--background-color);
+    box-shadow: 0px 0px 0px;
+}
+
+.patient-suggest-product-card-button:active {
+    color: var(--default-text);
+    background-color: var(--background-color);
+}
+
+.patient-suggest-product-card-button:hover {
+    border-color: var(--transparent);
+}
+
 .patient-suggest-product-image {
     display: flex;
     flex-direction: column;

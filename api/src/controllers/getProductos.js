@@ -32,7 +32,7 @@ async function getProducts (req, res) {
 async function getProductsById (id) {
    
         
-  const tipo = await Type.findAll({
+  const tipo = await Product.findAll({
       where: {
           id,
       }
