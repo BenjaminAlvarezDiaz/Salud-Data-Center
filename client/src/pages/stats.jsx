@@ -22,7 +22,7 @@ const dispatchOrder = async (orderpaid) => {
     try {
         
         const result = await dispatch(getOrders({orderpaid}));
-        setOrder(result);
+        setOrder(result.data);
     }catch (error){
         console.error("Error al consultar los pedidos: ", error);
         if (error.response && error.response.status === 404) {
@@ -48,8 +48,9 @@ const dispatchOrder = async (orderpaid) => {
             </div>
             <div className='stats-content-c'>
                 Hola
+                <button onClick={dispatchOrder}>Obtener Orden</button>
+                {(orderpaids)}
             </div>
-            <button onClick={dispatchOrder}>Obtener Orden</button>
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         </div>
     );

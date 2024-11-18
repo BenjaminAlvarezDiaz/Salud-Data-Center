@@ -41,8 +41,8 @@ export function getOrders(userData){
                 }
               });
             console.log("Response obtenido", response);
-            const orderpaid = response.data;
-            if (orderpaid) {
+            const orderpaids = response.data;
+            if (orderpaids) {
                 //Dispara una accion de exito con los datos
                 dispatch({ type: GET_STONKS_SUCCESS, payload: Order });
             }else {
