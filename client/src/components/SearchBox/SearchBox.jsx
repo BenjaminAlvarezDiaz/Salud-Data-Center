@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './SearchBox.css';
 
-function SearchBox({ placeHolder, data }){
+function SearchBox({ placeHolder, data, onFilter }){
     const [query, setQuery] = useState('');
     const [filteredData, setFilteredData] = useState([]);
+    const searchBoxRef = useRef(null);
 
     const handleInputChange = (event) => {
         const searchQuery = event.target.value;
@@ -15,23 +16,54 @@ function SearchBox({ placeHolder, data }){
 
         setFilteredData(filteredSuggestions);
 
+        if (onFilter) {
+            onFilter(searchQuery.toLowerCase());
+        }
+
         if(event.target.value.length == 0){
             setQuery('');
             setFilteredData([]);
+            if (onFilter) {
+                onFilter([]);
+            }
         }
     };
 
     const clearInput = () => {
         setQuery('');
         setFilteredData([]);
+        if (onFilter) {
+            onFilter([]);
+        }
     };
 
     const searchInput = () => {
 
     }
 
+    const handleSuggestionClick = (item) => {
+        setQuery(item);
+        if (onFilter) {
+            onFilter(item.toLowerCase());
+        }
+        setFilteredData([]);
+    };
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (searchBoxRef.current && !searchBoxRef.current.contains(event.target)) {
+                setFilteredData([]);
+            }
+        };
+
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     return (
-        <div className="search">
+        <div className="search" ref={searchBoxRef}>
             <div className="search-input">
                 <button className="search-btn" onClick={searchInput}>
                     <span className="material-icons , search-icon">search</span>
@@ -44,19 +76,24 @@ function SearchBox({ placeHolder, data }){
                 />
                 {query?
                 <button className="clear-btn" onClick={clearInput}>
-                    <span className="material-icons">close</span>
-                </button> : null
+                    <span className="material-icons , clear-icon">close</span>
+                </button> : <div className="clear-btn"/>
                 }
             </div>
-            {filteredData.length > 0 && (
+            {onFilter? filteredData.length > 0 && (
                 <div className="data-result">
                     {filteredData.slice(0, 10).map((item, index) => (
-                        <a key={index} href="#" className="data-item">
+                        <a 
+                            key={index} 
+                            href="#" 
+                            className="data-item"
+                            onClick={() => handleSuggestionClick(item)}
+                        >
                             {item}
                         </a>
                     ))}
                 </div>
-            )}
+            ) : null}
         </div>
     );
 }

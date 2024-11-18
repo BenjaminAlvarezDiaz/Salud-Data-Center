@@ -4,9 +4,9 @@
     bottom: 0;
     left: 0;
     width: 100%;
-    background-color: var(--primary);
+    background-color: var(--background-color);
     color: white;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 0px 5px var(--shadow-container);
 }
 
 .tabBar nav ul {
@@ -28,9 +28,21 @@
     font-size: 16px;
 }
 
-.tabBar nav ul li a .material-icons {
+.tabBar nav ul li a {
     font-size: 24px;
     margin-bottom: 4px;
+}
+
+.material-icons.item-icon-active{
+    font-size: 24px;
+    margin-bottom: 4px;
+    color: var(--primary);
+}
+
+.material-icons.item-icon-inactive{
+    font-size: 24px;
+    margin-bottom: 4px;
+    color: var(--default-text);
 }
 
 @media (max-width: 700px) {
