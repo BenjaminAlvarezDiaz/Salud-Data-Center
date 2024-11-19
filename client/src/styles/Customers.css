@@ -1,0 +1,93 @@
+.customers-main-container {
+    background-color: var(--background-color);
+    color: var(--background-color);
+    height: 100%;
+    width: 100%;
+}
+
+.material-icons.icon-app-bar {
+    font-size: 20px;
+    padding-top: 5px;
+    color: var(--default-text);
+}
+
+.customers-icon-right {
+    width: 40px;
+    height: 40px;
+    background: var(--background-color);
+    border-radius: 30px;
+    align-content: center;
+}
+
+.customers-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 60px;
+    margin-bottom: 0px;
+    margin-left: 250px;
+    padding-bottom: 5px;
+    width: 80%;
+    height: 520px;
+    background-color: var(--background-color);
+    border-radius: 20px;
+}
+
+.customers-content-up {
+    display: flex;
+    flex-direction: row;
+    background-color: var(--white);
+    border-radius: 20px;
+    padding: 20px;
+    gap: 20px;
+    box-shadow: 0px 0px 5px var(--shadow-container);
+}
+
+.customers-content-see-items {
+    display: flex;
+    flex-direction: row;
+    width: 10%;
+    padding-left: 10px;
+    padding-right: 10px;
+    align-self: center;
+    border-radius: 20px;
+    background-color: var(--background-color);
+}
+
+.customers-content-buttons {
+    height: 40px;
+    width: 40px;
+    border-radius: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--background-color);
+    box-shadow: 0px 0px 0px;
+}
+
+.customers-content-buttons:hover {
+    border-color: var(--white);
+}
+
+.customers-content-buttons:active {
+    background-color: var(--white);
+    color: var(--default-text);
+}
+
+.material-icons.customers-buttons {
+    font-size: 30px;
+    align-self: center;
+}
+
+.customers-content-filter {
+    width: 40%;
+}
+
+.customers-content-filter-button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 50px;
+    font-size: 16px;
+    width: 50%;
+}
