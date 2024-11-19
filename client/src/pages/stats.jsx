@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import { React, useState, useEffect } from 'react';
 import AppBar from '../components/AppBar/AppBar';
 import Sidebar from '../components/SideBar/Sidebar';
 import '../styles/stats.css';
@@ -17,21 +17,28 @@ const toggleSidebar = () => {
     //alert('¡Me hiciste click!');
     setSidebarOpen(!isSidebarOpen);
 };
+
 const dispatchOrder = async (orderpaid) => {
-    console.log('aaaaaa');
     try {
-        
-        const result = await dispatch(getOrders({orderpaid}));
-        setOrder(result.data);
-    }catch (error){
-        console.error("Error al consultar los pedidos: ", error);
-        if (error.response && error.response.status === 404) {
-            setError(
-              "Error interno del servidor. Por favor, intenta de nuevo más tarde."
-            );
-        }
+        const orders = await dispatch(getOrders(orderpaid));
+        console.log("Datos obtenidos después del dispatch:", orders);
+        setOrder(Array.isArray(orders) ? orders : []);
+    } catch (error) {
+        console.error("Error al consultar los pedidos:", error);
     }
-}
+};
+
+
+
+useEffect(() => {
+    dispatchOrder(orderpaid);
+}, []);
+useEffect(() => {
+    console.log("Estado actual de orderpaids:", orderpaids);
+}, [orderpaids]);
+
+const totals = orderpaids.map(order => order.total); // Extrae los totales
+const labels = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes']; // Etiquetas para los días
 
     return(
         <div className='stats-main-container'>
@@ -43,13 +50,13 @@ const dispatchOrder = async (orderpaid) => {
                 <div className='stats-content-b'>o</div>
             </div>
             <div className='stats-LineChar'>
-                <LineChart/>
+            <LineChart totals={totals} labels={labels} />
             </div>
             </div>
             <div className='stats-content-c'>
                 Hola
-                <button onClick={dispatchOrder}>Obtener Orden</button>
-                {(orderpaids)}
+                <div>
+                </div>
             </div>
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         </div>
