@@ -10,11 +10,18 @@
     align-items: center;
     background-color: #3f51b5;
     color: white;
+    gap: 20px;
 }
 
 .menuButtonStyle {
     font-size: 28px;
     cursor: pointer;
+}
+
+.app-bar-content {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
 }
 
 .titleStyle {
@@ -25,8 +32,11 @@
 }
 
 .contentRightStyle {
-    width: 200px;
-    display: contents;
+    width: 40%;
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    gap: 20px;
 }
 
 .itemRight {
@@ -36,7 +46,7 @@
 .iconRight {
     width: 40px;
     height: 40px;
-    background: gray;
+    background: var(--background-color);
     border-radius: 30px;
     align-content: center;
 }
