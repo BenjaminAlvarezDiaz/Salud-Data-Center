@@ -4,22 +4,26 @@ const { Record } = require('../db');
 async function postRecords(req, res) {
   const {
     nombrepaciente,
+    dnipaciente,
     doctorasignado,
     fechaemision,
     razondevisita,
     tratamiento,
-    indicaciones
+    indicaciones,
+    suggestProduct,
   } = req.body;
 
   try {
     // Crear un nuevo registro médico en la base de datos
     const nuevoHistorial = await Record.create({
       nombrepaciente,
+      dnipaciente,
       doctorasignado,
       fechaemision,
       razondevisita,
       tratamiento,
       indicaciones,
+      suggestProduct,
     });
 
     return res.status(201).json(nuevoHistorial);

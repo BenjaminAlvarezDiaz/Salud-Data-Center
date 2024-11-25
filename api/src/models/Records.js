@@ -10,6 +10,9 @@ module.exports = (sequelize) => {
       nombrepaciente: {
         type: DataTypes.STRING,
       },
+      dnipaciente: {
+        type: DataTypes.INTEGER,
+      },
       doctorasignado: {
         type: DataTypes.STRING,
       },
@@ -24,6 +27,9 @@ module.exports = (sequelize) => {
       },
       indicaciones: {
         type: DataTypes.STRING,
+      },
+      suggestProduct: {
+        type: DataTypes.INTEGER,
       },
     },
     {

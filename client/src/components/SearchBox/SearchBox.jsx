@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './SearchBox.css';
 
-function SearchBox({ placeHolder, data, onFilter }){
+function SearchBox({ placeHolder, data, onFilter, customStyles = {} }){
     const [query, setQuery] = useState('');
     const [filteredData, setFilteredData] = useState([]);
     const searchBoxRef = useRef(null);
@@ -63,30 +63,31 @@ function SearchBox({ placeHolder, data, onFilter }){
     }, []);
 
     return (
-        <div className="search" ref={searchBoxRef}>
-            <div className="search-input">
-                <button className="search-btn" onClick={searchInput}>
-                    <span className="material-icons , search-icon">search</span>
+        <div className={customStyles.searchContainer || "search"} ref={searchBoxRef}>
+            <div className={customStyles.inputContainer || "search-input"}>
+                <button className={customStyles.searchButton || "search-btn"} onClick={searchInput}>
+                    <span className={`${customStyles.searchIcon || "material-icons"} search-icon`}>search</span>
                 </button>
                 <input
                     type="text"
                     placeholder={placeHolder}
                     value={query}
                     onChange={handleInputChange}
+                    className={customStyles.input || ""}
                 />
                 {query?
-                <button className="clear-btn" onClick={clearInput}>
-                    <span className="material-icons , clear-icon">close</span>
-                </button> : <div className="clear-btn"/>
+                <button className={customStyles.clearButton || "clear-btn"} onClick={clearInput}>
+                    <span className={`${customStyles.clearIcon || "material-icons"} clear-icon`}>close</span>
+                </button> : <div className={customStyles.clearButton || "clear-btn"}/>
                 }
             </div>
             {onFilter? filteredData.length > 0 && (
-                <div className="data-result">
+                <div className={customStyles.resultsContainer || "data-result"}>
                     {filteredData.slice(0, 10).map((item, index) => (
                         <a 
                             key={index} 
                             href="#" 
-                            className="data-item"
+                            className={customStyles.resultItem || "data-item"}
                             onClick={() => handleSuggestionClick(item)}
                         >
                             {item}

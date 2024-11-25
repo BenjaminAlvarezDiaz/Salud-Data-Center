@@ -86,8 +86,97 @@
 .customers-content-filter-button {
     display: flex;
     flex-direction: row;
+    justify-self: right;
     align-items: center;
     border-radius: 50px;
     font-size: 16px;
+    height: 40px;
     width: 50%;
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.customers-patients-list {
+    width: 100%;
+    /*height: 100%;*/
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; 
+}
+
+.customers-user-card-short {
+    width: 150px;
+    height: 110px;
+}
+
+.customers-user-card {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    background-color: var(--white);
+    gap: 10px;
+}
+
+.customers-user-card:hover {
+    border-color: var(--white);
+}
+
+.customers-user-card:active {
+    background-color: var(--white);
+    color: var(--default-text);
+}
+
+.customers-user-card-long {
+    height: 110px;
+}
+
+.customers-user-card-data-left {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-items: left;
+    gap: 10px;
+    text-align: left;
+    align-items: center;
+}
+
+.material-icons.user-data {
+    font-size: 34px;
+}
+
+.material-symbols-outlined.user-data {
+    font-size: 34px;
+}
+
+.customers-user-card-data-right {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-items: left;
+    gap: 10px;
+    text-align: left;
+    align-items: center;
+    font-size: 14px;
+}
+
+.customers-user-card-button-more {
+    height: 20px;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--white);
+    box-shadow: 0px 0px 0px;
+}
+
+.customers-user-card-button-more:hover {
+    border-color: var(--white);
+}
+
+.customers-user-card-button-more:active {
+    background-color: var(--white);
+    color: var(--default-text);
 }

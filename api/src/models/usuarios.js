@@ -56,10 +56,6 @@ module.exports = (sequelize) => {
       exp_Medico: {
         type: DataTypes.STRING,
       },
-      
-      suggestProduct: {
-        type: DataTypes.INTEGER,
-      },
 
       active: {
         type: DataTypes.BOOLEAN,
