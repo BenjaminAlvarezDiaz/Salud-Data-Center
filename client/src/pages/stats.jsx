@@ -1,63 +1,62 @@
-import React, {useState} from 'react';
+import { React, useState, useEffect } from 'react';
 import AppBar from '../components/AppBar/AppBar';
 import Sidebar from '../components/SideBar/Sidebar';
-import '../styles/Help.css';
+import '../styles/stats.css';
+import { getOrders } from '../Redux/actions/Stats_actions';
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import { postProductos } from '../Redux/actions/Stats_actions';
+import LineChart from '../components/LineChart/LineChart';
 
 function Stats(){
-    const [isSidebarOpen, setSidebarOpen] = useState(true);
-    var newProduct = {};
-    const toggleSidebar = () => {
-        //alert('¡Me hiciste click!');
-        setSidebarOpen(!isSidebarOpen);
-    };
+const [isSidebarOpen, setSidebarOpen] = useState(true);
+const [orderpaids, setOrder] = useState([]);
+var orderpaid = { id: null , idCliente: null, idProducto: null, estadoPedido: 'paid', total: null};
+const navigate = useNavigate();
+const dispatch = useDispatch();
+const toggleSidebar = () => {
+    //alert('¡Me hiciste click!');
+    setSidebarOpen(!isSidebarOpen);
+};
 
-    const navigate = useNavigate();
-    const dispatch = useDispatch();
-
-    async function createProductFunction (e) {
-        e.preventDefault();
-        newProduct = {
-            CategoriaId: "1", 
-            marca: "Alfa_centauri", 
-            modelo: "Aerodinamico", 
-            año: "255 a.c.", 
-            precio: "incalculable", 
-            descripcion: "terrible caga",
-            ficha_tecnica: "si",
-            imagenes: "https://stickerly.pstatic.net/sticker_pack/PQEbA06NLcQ7reKUeFtK0g/9I87N5/2/e7d14800-7468-4030-be3a-0b2d8dacd543.png"
-        };
-        try {
-            const response = await dispatch(postProductos(newProduct));
-            console.log("Status: " + response.status);
-            if(response && response.status === 200){
-                console.log("PRODUCTO CREADO SATISFACTORIAMENTE");
-                console.log(response.nombre);
-            }else {
-                console.log("DATOS NO EXISTENTES");
-            }
-        }catch (error){
-            console.error("Error al crear el doctor: ", error);
-            if (error.response && error.response.status === 404) {
-                setError(
-                  "Error interno del servidor. Por favor, intenta de nuevo más tarde."
-                );
-            }else if (error.response.status === 400) {
-                setError("¡Producto no creado, not found!");
-            }
-        }
+const dispatchOrder = async (orderpaid) => {
+    try {
+        const orders = await dispatch(getOrders(orderpaid));
+        console.log("Datos obtenidos después del dispatch:", orders);
+        setOrder(Array.isArray(orders) ? orders : []);
+    } catch (error) {
+        console.error("Error al consultar los pedidos:", error);
     }
+};
+
+
+
+useEffect(() => {
+    dispatchOrder(orderpaid);
+}, []);
+useEffect(() => {
+    console.log("Estado actual de orderpaids:", orderpaids);
+}, [orderpaids]);
+
+const totals = orderpaids.map(order => order.total); // Extrae los totales
+const labels = ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes']; // Etiquetas para los días
 
     return(
-        <div className='main-container'>
+        <div className='stats-main-container'>
             <AppBar/>
-            <div className='content'>
-                <h1>
-                    Product
-                </h1>
-                <button onClick={createProductFunction}>Crear producto</button>
+            <div className='stats-content-Global'>
+            <div className='stats-content'>
+                <div className='stats-content-b'> Holis</div>
+                <div className='stats-content-b'>H</div>
+                <div className='stats-content-b'>o</div>
+            </div>
+            <div className='stats-LineChar'>
+            <LineChart totals={totals} labels={labels} />
+            </div>
+            </div>
+            <div className='stats-content-c'>
+                Hola
+                <div>
+                </div>
             </div>
             <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         </div>

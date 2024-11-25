@@ -1,0 +1,42 @@
+
+.stats-main-container{
+    padding-left: 242px;
+    display: flex;
+    width: 100%;
+    background-color: var(--background-colorfefe);
+    color: var(--background-color);
+}
+
+.stats-content-Global
+{
+    padding-top: 50px;
+    width: 55%;
+    background-color: var(--background-color);
+}
+.stats-content{
+    height: 90px;
+    width: 100%;
+    display: flex;
+    background-color: pink;
+    align-items: center;
+    justify-content: center;
+}
+.stats-content-b
+{
+    background-color: brown;
+    max-width: 50px;
+    max-height: 50px;
+    width: 100%;
+    height: 100%;
+}
+.stats-content-c
+{
+    display: block;
+    padding-top: 50px;
+    height: 100%;
+    width: 30%;
+    background-color: blueviolet;
+}
+h1 {
+    color: var(--red);
+}
