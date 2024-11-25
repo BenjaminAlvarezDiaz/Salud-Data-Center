@@ -12,7 +12,7 @@ function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
                 : 
                 <div className='company'>
                     <div className='not-image'>
-                        <span className='material-icons , not-image-icon'>store</span>
+                        <span className='material-icons not-image-icon'>store</span>
                     </div>
                     Company Name
                 </div>
@@ -22,7 +22,7 @@ function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
                     <li>
                         <a href="/products">
                             <button className='button'>
-                                <span className="material-icons , span-icon">local_mall</span> 
+                                <span className="material-icons span-icon">local_mall</span> 
                                 Products 
                             </button>
                         </a>
@@ -30,7 +30,7 @@ function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
                     <li>
                         <a href="/orders">
                             <button className='button'>
-                                <span className="material-icons , span-icon">receipt_long</span> 
+                                <span className="material-icons span-icon">receipt_long</span> 
                                 Orders 
                             </button>
                         </a>
@@ -38,7 +38,7 @@ function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
                     <li>
                         <a href="/stadistics">
                             <button className='button'>
-                                <span className="material-icons , span-icon">show_chart</span> 
+                                <span className="material-icons span-icon">show_chart</span> 
                                 Stadistics 
                             </button>
                         </a>
@@ -46,7 +46,7 @@ function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
                     <li>
                         <a href="/customers">
                             <button className='button'>
-                                <span className="material-icons , span-icon">group</span> 
+                                <span className="material-icons span-icon">group</span> 
                                 Customers 
                             </button>
                         </a>
@@ -54,7 +54,7 @@ function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
                     <li>
                         <a href="/settings">
                             <button className='button'>
-                                <span className="material-icons , span-icon">settings</span> 
+                                <span className="material-icons span-icon">settings</span> 
                                 Settings 
                             </button>
                         </a>
@@ -66,7 +66,7 @@ function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
                     <li>
                         <a href="/help">
                             <button className='button'>
-                                <span className="material-icons , span-icon">info</span> 
+                                <span className="material-icons span-icon">info</span> 
                                 Help 
                             </button>
                         </a>

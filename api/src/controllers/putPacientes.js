@@ -18,7 +18,6 @@ async function updatePatients(req, res) {
       pacientes.tratamiento = req.body.tratamiento;
       pacientes.diagnostico = req.body.diagnostico; 
       pacientes.exp_Medico = req.body.exp_Medico;              
-      pacientes.suggestProduct = req.body.suggestProduct;
 
       await pacientes.save();
 

@@ -9,9 +9,11 @@ function AppBar({ toggleSidebar, content, contentRight, iconRight }){
     <div className="appBarStyle">
         <span className="material-icons , menuButtonStyle" onClick={toggleSidebar}>
             menu
-            {/* Icono de menú de hamburguesa */}
+            {/* Icono de menú */}
         </span>
-        {content}
+        <div className="app-bar-content">
+          {content}
+        </div>
       <div className="contentRightStyle">
         {contentRight? contentRight : (<div className="itemRight"></div>)}
         <div className="iconRight">

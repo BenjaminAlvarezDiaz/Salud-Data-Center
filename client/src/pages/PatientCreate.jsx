@@ -36,7 +36,13 @@ function PatientCreate (){
         e.preventDefault();
 
         const date = new Date();
-        const currentDate = date.toLocaleDateString();
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+        };
+        const currentDate = date.toLocaleDateString() + " " + date.toLocaleTimeString('es-ES', options);
 
         newPatient = {
             nombre: nombre,
@@ -54,6 +60,7 @@ function PatientCreate (){
 
         newRecord = {
             nombrepaciente: apellido + " " + nombre,
+            dnipaciente: dni,
             doctorasignado: "Martinez",
             fechaemision: currentDate,
             razondevisita: sintomas,
@@ -66,7 +73,7 @@ function PatientCreate (){
             setNoDataInput(false);
             dispatch(postRecords(newRecord));
             dispatch(postPatients(newPatient));
-            navigate('/patientProfile');
+            navigate('/patients');
 
         } else if(!diagnostico && !exp_Medico && !doctorasignado && !sintomas && !tratamiento && !indicaciones) {
             setNoDataInput(true);

@@ -4,6 +4,7 @@ import { useDispatch } from "react-redux";
 import SearchBox from "../components/SearchBox/SearchBox";
 import { getProducts, postProducts } from "../redux/actions/product_actions";
 import { putPatients } from "../redux/actions/patient_actions";
+import { postRecords } from "../redux/actions/record_actions";
 import "../styles/PatientSuggestProduct.css";
 
 function PatientSuggestProduct (){
@@ -13,11 +14,15 @@ function PatientSuggestProduct (){
     const [ searchArray, setSearchArray ] = useState([]);
     const [suggestProducts, setSuggestProducts] = useState([]);
     const [ patient, setPatient ] = useState(location.state || {});
+    const [ record, setRecord ] = useState(location.state || {});
     const [filteredItems, setFilteredItems] = useState([]);
     const [ data, setData ] = useState([]);
 
+    const [ visualSuggestProducts, setVisualSuggestProducts ] = useState([]);
+
     var product = {id:null};
-    var suggestProduct = {id:patient.patient.suggestProduct};
+    var suggestProduct = {id:record.record.suggestProduct};
+    console.log(record);
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -72,11 +77,12 @@ function PatientSuggestProduct (){
         }
     }*/
 
-    async function onClickConfirm (e, patient){
-        e.preventDefault();
+    async function onClickConfirm (record){
+        console.log(record);
         try {
-            const result = await dispatch(updatePatient(patient));
-            setPatient(result);
+            const result = await dispatch(postRecords(record.record));
+            console.log(result);
+            navigate("/patients");
         } catch (error) {
             console.error("Error al obtener los productos:", error);
             if (error.response && error.response.status === 404) {
@@ -105,6 +111,9 @@ function PatientSuggestProduct (){
                             <ProductCard
                                 key = {index}
                                 patient = {patient}
+                                recordParam = {record}
+                                setRecord = {setRecord}
+                                setSuggestProducts = {setSuggestProducts}
                                 id = {item.id}
                                 title = {item.modelo + " " + item.marca}
                                 subTitle = {"$" + item.precio}
@@ -116,6 +125,9 @@ function PatientSuggestProduct (){
                             <ProductCard
                                 key = {index}
                                 patient = {patient}
+                                recordParam = {record}
+                                setRecord = {setRecord}
+                                setSuggestProducts = {setSuggestProducts}
                                 id = {item.id}
                                 title = {item.modelo + " " + item.marca}
                                 subTitle = {"$" + item.precio}
@@ -126,7 +138,7 @@ function PatientSuggestProduct (){
                 </div>
                 <div className="patient-suggest-product-buttons">
                     <button className="patient-suggest-product-button" onClick={onClickCancel}>Cancelar</button>
-                    <button className="patient-suggest-product-button" onClick={() => {onClickConfirm(patient)}}>Confirmar</button>
+                    <button className="patient-suggest-product-button" onClick={() => {onClickConfirm(record)}}>Confirmar</button>
                 </div>
                 <div className="patient-suggest-product-suggest-label">Producto recomendado:</div>
                 {suggestProduct.id? <div className="patient-suggest-product-list">
@@ -144,29 +156,43 @@ function PatientSuggestProduct (){
     );
 }
 
-function ProductCard ({patient, id, title, subTitle, description}){
+function ProductCard ({patient, recordParam, setRecord, setSuggestProducts, id, title, subTitle, description}){
 
     const dispatch = useDispatch();
 
-    const suggestProductCardOnClick = (id) => {
+    const suggestProductCardOnClick = async (id) => {
         console.log(id);
-        var newPatient = {
-            id: patient.patient.id,
-            nombre: patient.patient.nombre,
-            apellido: patient.patient.apellido,
-            dni: patient.patient.dni,
-            age: patient.patient.age,
-            email: patient.patient.email,
-            telefono: patient.patient.telefono,
-            telefono2: patient.patient.telefono2,
-            sintomas: patient.patient.sintomas,
+
+        const date = new Date();
+        const options = {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            hour12: false,
+        };
+        const currentDate = date.toLocaleDateString() + " " + date.toLocaleTimeString('es-ES', options);
+
+        var newRecord = {
+            id: recordParam.record.id,
+            nombrepaciente: patient.patient.apellido + " " + patient.patient.nombre,
+            dnipaciente: recordParam.record.dnipaciente,
+            doctorasignado: recordParam.record.doctorasignado,
+            fechaemision: currentDate,
+            razondevisita: recordParam.record.razondevisita,
             tratamiento: patient.patient.tratamiento,
-            diagnostico: patient.patient.diagnostico,
-            exp_Medico: patient.patient.exp_Medico,
+            indicaciones: recordParam.record.indicaciones, //Agregar input para modificar indicaciones
             suggestProduct: id,
         };
-        /*console.log(newPatient);*/
-        dispatch(putPatients(newPatient));
+        console.log(newRecord);
+        //dispatch(postRecords(newRecord));
+        var record = newRecord;
+        var suggestProduct = { id: id };
+        setRecord({record: record});
+        const suggestResult = await dispatch(getProducts(suggestProduct));
+        setSuggestProducts(suggestResult.data);
+        console.log(suggestProduct);
+        //record = newRecord;
+        //setVisualSuggestProducts(newRecord);
     }
 
     return (

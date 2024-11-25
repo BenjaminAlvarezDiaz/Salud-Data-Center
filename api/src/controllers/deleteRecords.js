@@ -32,6 +32,16 @@ async function deleteRecords (req, res){
             }
         }
 
+        if(req.query.dnipaciente){
+            const data = await deleteRecordByParam(req.query.dnipaciente);
+            console.log('Eliminado registro por el dni del paciente');
+            if (data) {
+                return res.json(data);
+            } else {
+                return res.status(404).json({ message: "dni del paciente no existe en db" });
+            }
+        }
+
     } catch (error) {
         console.error("Error al eliminar el registro:", error);
         return res.status(500).json({ error: "Error interno del servidor" });
