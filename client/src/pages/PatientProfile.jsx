@@ -2,14 +2,17 @@ import { React, useState , useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { getPatients } from "../redux/actions/patient_actions.js";
+import { getRecords } from "../redux/actions/record_actions.js";
 import '../styles/PatientProfile.css';
 
 function PatientProfile (){
     const [patients, setPatients] = useState([]);
+    const [record, setRecord] = useState([]);
 
     const location = useLocation();
     const { patient } = location.state || {};
     //var patient = {id: null, nombre: null, apellido: null};
+    
     var symptoms;
     var medicalFile;
 
@@ -26,11 +29,26 @@ function PatientProfile (){
                 alert("No existe un doctor con esas credenciales.");
             }
         };
+    }*/
+
+    const getRecord = async (patient) => {
+        try {
+            const data = { dnipaciente: patient.dni };
+            const result = await dispatch(getRecords(data));
+            console.log(result);
+            setRecord(result);
+        } catch (error) {
+            console.log("No se pudo encontrar el registro del usuario: ", error);
+            if (error.response && error.response.status === 404) {
+                alert("Not found");
+            }
+        }
     }
 
     useEffect(() => {
-        dispatchPatients(patient);
-    }, []);*/
+        //dispatchPatients(patient);
+        getRecord(patient);
+    }, []);
 
     if(patient.sintomas.length > 12 || patient.exp_Medico.length > 15){
         symptoms = patient.sintomas.slice(0, 12) + "...";
@@ -40,8 +58,8 @@ function PatientProfile (){
         medicalFile = patient.exp_Medico;
     }
 
-    const navigateSymptoms = (patient) => {
-        navigate("/patientSymptoms", {state: {patient:patient}});
+    const navigateSymptoms = (patient, record) => {
+        navigate("/patientSymptoms", {state: {patient:patient, record: record}});
     }
 
     const navigateMedicalFile = (patient) => {
@@ -68,7 +86,7 @@ function PatientProfile (){
                 {profileItem('medical_services', 'Diagnostico:', patient.diagnostico)}
                 {profileItem('medication', 'Tratamiento:', patient.tratamiento)}
                 {profileItem('medical_information', 'Sintomas:', symptoms, 
-                    <button className="patient-profile-button" onClick={() => {navigateSymptoms(patient)}}>Ver mas</button>)}
+                    <button className="patient-profile-button" onClick={() => {navigateSymptoms(patient, record)}}>Ver mas</button>)}
                 {profileItem('medical_information', 'Expediente medico:', medicalFile, 
                     <button className="patient-profile-button" onClick={() => {navigateMedicalFile(patient)}}>Ver mas</button>)}
             </div>

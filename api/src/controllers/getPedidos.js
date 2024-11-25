@@ -69,9 +69,9 @@ async function getOrdersByStatus(status){
     try {
         const data = await Order.findOne({ where: { status } });
         if (data) {
-                return data;
+            return data;
         } else {
-                return false;
+            return false;
         }
     } catch (error) {
         console.error("Error al obtener el pedido por status:", error);

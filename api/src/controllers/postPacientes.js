@@ -13,10 +13,9 @@ async function postPatients(req, res) {
       tratamiento,
       diagnostico,
       exp_Medico,
-      suggestProduct,
     } = req.body;
     try {
-      const NewPaciente = await Patient.create({
+      const newPaciente = await Patient.create({
         nombre,
         apellido,
         dni,
@@ -28,9 +27,8 @@ async function postPatients(req, res) {
         tratamiento,
         diagnostico,
         exp_Medico,
-        suggestProduct,
       });
-      console.log(NewPaciente);
+      return res.status(201).json(newPaciente);
     } catch (error) {
       return res.status(500).json({ message: error.message });
     }

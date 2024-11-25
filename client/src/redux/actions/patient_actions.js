@@ -21,7 +21,7 @@ export function getPatients(userData){
                     name: userData.nombre,
                     surname: userData.apellido,
                 }
-              });
+            });
             console.log("Response obtenido", response);
             const patient = response.data;
             if (patient) {
@@ -43,6 +43,7 @@ export function getPatients(userData){
 }
 
 export function postPatients(userData){
+    console.log(userData.nombre);
     return async (dispatch) => {
         try {
             const response = await axios.post('http://localhost:3001/Patient/postPatients', {
@@ -64,11 +65,9 @@ export function postPatients(userData){
                 //Dispara una accion de exito con los datos
                 dispatch({ type: POST_PATIENTS_SUCCESS, payload: patient });
             }else {
-                console.log("MIAUUUUUUUUUUUUUUUU");
                 // Dispara una acción de error si no encontro al paciente
                 dispatch({ type: POST_PATIENTS_FAILURE, payload: "No se encontro al paciente" });
             }
-            console.log("MIAUUUUUUUUUUUUUUUU");
             return response;
         }catch (error) {
             dispatch({ type: POST_PATIENTS_FAILURE, payload: error.message });

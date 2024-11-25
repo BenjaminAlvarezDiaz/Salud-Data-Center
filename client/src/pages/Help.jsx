@@ -198,7 +198,7 @@ function AIChat (){
         <div className='help-AI-chat'>
             <div className='help-AI-chat-icon-label'>
                 <div className='help-AI-icon'>
-                    <span class="material-symbols-outlined AI-icon">network_intelligence</span>
+                    <span className="material-symbols-outlined AI-icon">network_intelligence</span>
                 </div>
                 Asistente Virtual
             </div>

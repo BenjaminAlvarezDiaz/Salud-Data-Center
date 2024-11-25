@@ -7,13 +7,13 @@ function PatientSymptoms (){
     const [patients, setPatients] = useState([]);
 
     const location = useLocation();
-    const { patient } = location.state || {};
+    const { patient, record } = location.state || {};
 
     const navigate = useNavigate();
     const dispatch = useDispatch();
 
-    const navigateSuggestProduct = (patient) => {
-        navigate("/patientSuggestProduct", {state: {patient:patient}});
+    const navigateSuggestProduct = (patient, record) => {
+        navigate("/patientSuggestProduct", {state: {patient:patient, record:record}});
     }
 
     return (
@@ -21,7 +21,7 @@ function PatientSymptoms (){
             <h3>Descripción de sintomas</h3>
             <div className="patient-symptoms-description">
                 {(patient.sintomas)}
-                <button onClick={() => {navigateSuggestProduct(patient)}}>Recomendar producto</button>
+                <button onClick={() => {navigateSuggestProduct(patient, record)}}>Recomendar producto</button>
             </div>
         </div>
     );
