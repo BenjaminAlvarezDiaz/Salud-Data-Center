@@ -41,6 +41,7 @@ export function postProducts (userData){
             
             const response = await axios.post('http://localhost:3001/Product/postProducts', {
                 CategoriaId: userData.CategoriaId,
+                name: userData.name,
                 marca: userData.marca,
                 modelo: userData.modelo,
                 anio: userData.anio,
@@ -48,6 +49,8 @@ export function postProducts (userData){
                 descripcion: userData.descripcion,
                 ficha_tecnica: userData.ficha_tecnica,
                 imagenes: userData.imagenes,
+                stock: userData.stock,
+                published: userData.published,
             });
             console.log("Response obtenido", response);
             const product = response.data;

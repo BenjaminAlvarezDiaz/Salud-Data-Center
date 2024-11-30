@@ -165,7 +165,12 @@ function UserCard ({patient}){
                         onClose={closePopup}
                         children={
                             <div>
-                                <h2>AAAA</h2>
+                                <h2>{patient.nombre + " " + patient.apellido}</h2>
+                                <div>{patient.email}</div>
+                                {patient.telefono + " " + patient.telefono2}
+                                <div>
+                                    <span className='material-icons'></span> Tratamiento:
+                                </div>
                             </div>
                         }
                     />
