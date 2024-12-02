@@ -16,6 +16,7 @@ import PatientCreate from "./pages/PatientCreate";
 import PatientSymptoms from "./pages/PatientSymptoms";
 import PatientMedicalFile from "./pages/PatientMedicalFile";
 import PatientSuggestProduct from "./pages/PatientSuggestProduct";
+import Profile from "./pages/Profile";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
         <Route path="/PerfilEmp" element={<Perfil_Empresa />} />
         <Route path="/Help" element={<Help />} />
         <Route path="/Customers" element= {<Customers />} />
+        <Route path="/settings" element = {<Profile />} />
         <Route path="/SignUp" element = {<SignUp />} />
         <Route path="/signupdoctor" element = {<SignUpDoctor />} />
         <Route path="/signupcompany" element = {<SignUpCompany />} />
@@ -35,7 +37,7 @@ function App() {
         <Route path="/createPatient" element = {<PatientCreate />} />
         <Route path="/patientSymptoms" element = {<PatientSymptoms />} />
         <Route path="/patientMedicalFile" element = {<PatientMedicalFile />} />
-        <Route path="/patientSuggestProduct" element = {<PatientSuggestProduct />} /> 
+        <Route path="/patientSuggestProduct" element = {<PatientSuggestProduct />} />
       </Routes>
     </div>
   );
