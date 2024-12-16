@@ -21,6 +21,12 @@ function AppBar({ toggleSidebar, content, contentRight, iconRight }){
         </div>
       </div>
       <div className="endBox"></div>
+      <div className="container-buttons">
+        <button className="button-App"><span>E-commerce</span></button>
+        <button className="button-App image-button"><img src="" alt="" /><a href="#"></a></button>
+        <button className="button-App image-shop"><img src="" alt="" /><a href="#"></a></button>
+      </div>
+      <input className="input-App" type="seach" />
     </div>
     );
 }

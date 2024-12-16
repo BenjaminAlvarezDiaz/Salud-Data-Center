@@ -63,9 +63,9 @@ function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
             </nav>
             <nav className='help'>
                 <ul>
-                    <li>
+                    <li className='help-position'>
                         <a href="/help">
-                            <button className='button'>
+                            <button className='button-help'>
                                 <span className="material-icons span-icon">info</span> 
                                 Help 
                             </button>

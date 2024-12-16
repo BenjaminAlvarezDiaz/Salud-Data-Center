@@ -8,9 +8,10 @@
     z-index: 1000;
     justify-content: space-between;
     align-items: center;
-    background-color: #3f51b5;
+    background-color: #023F81;
     color: white;
     gap: 20px;
+    outline: none;
 }
 
 .menuButtonStyle {
@@ -57,4 +58,66 @@
 
 .endBox {
     width: 1px;
+}
+
+.container-buttons {
+    position: absolute;
+    right: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.image-button {
+    background-repeat: no-repeat;
+    background-size: 22px;
+    background-position: center;
+    background-image: url(https://cdn-icons-png.flaticon.com/512/1511/1511502.png);
+    filter: invert(0%);
+    transition: filter 0.4s ease;
+}
+
+.image-button:hover {
+    filter: invert(100%);
+}
+
+.button-App{
+    border-radius: 20px;
+    filter: invert(0%);
+    transition: filter, transform 0.4s ease;
+    box-shadow: 0px 0px 2px black;
+}
+
+.button-App:hover {
+    filter: invert(100%);
+    transform: scale(1.1);
+}
+
+.button-App span {
+    color: black;
+    font-weight: bold;
+    font-size: 17px;
+}
+
+
+.image-shop{
+    background-image: url(https://img.icons8.com/?size=24&id=3137&format=png);
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: center;
+}
+
+.input-App {
+    position: absolute;
+    right: 500px;
+    width: 1220px;
+    height: 30px;
+    border-radius: 18px;
+    margin: 0;
+    border: 0;
+    outline: none;
+    font-size: 20px;
+    padding: 10px;
+    padding-left: 20px;
 }

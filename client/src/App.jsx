@@ -16,6 +16,7 @@ import PatientCreate from "./pages/PatientCreate";
 import PatientSymptoms from "./pages/PatientSymptoms";
 import PatientMedicalFile from "./pages/PatientMedicalFile";
 import PatientSuggestProduct from "./pages/PatientSuggestProduct";
+import Orders2 from "./pages/Orders2";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Perfil" element={<Perfil_Doctor />} />
         <Route path="/PerfilEmp" element={<Perfil_Empresa />} />
         <Route path="/Help" element={<Help />} />
+        <Route path="/Orders2" element={<Orders2 />} />
         <Route path="/Customers" element= {<Customers />} />
         <Route path="/SignUp" element = {<SignUp />} />
         <Route path="/signupdoctor" element = {<SignUpDoctor />} />

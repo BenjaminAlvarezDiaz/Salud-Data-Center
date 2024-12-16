@@ -1,0 +1,275 @@
+body {
+    height: 90vh;
+}
+
+.orders2__main {
+    background-color: #ddd;
+}
+
+.orders2__main1 {
+    height: 90vh;
+    padding-left: 300px;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: column;
+    margin: 40px;
+}
+
+.orders2__container {
+    height: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #fff;
+    align-items: center;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 2px #999;
+}
+
+.orders2__containerPro{
+    width: 100%;
+    height: 82%;
+    background-color: #fff;
+    border-radius: 30px;
+    box-shadow: 0px 0px 2px #999;
+}
+
+.contenedor__cuadricula {
+    width: 150px;
+    height: 59px;
+    background-color: #eee;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 40px;
+}
+
+.contenedor__cuadrilla{
+    height: 60px;
+    width: 60px;
+    border-radius: 30px;
+    box-shadow: 0px 0px 2px #aaa;
+}
+
+.contenedor__cuadrilla-2{
+    background-image: url(https://img.icons8.com/?size=50&id=16303&format=png);
+    background-size: covers;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.contenedor__cuadrilla-1 {
+    background-image: url(https://img.icons8.com/?size=50&id=GhW7E6TRTWHw&format=png);
+    background-size: 40px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.input__pro {
+    width: 600px;
+    height: 60px;
+    border-radius: 40px;
+    outline: none;
+    border: none;
+    background-color: #ddd;
+    font-size: 34px;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.botones {
+    border-radius: 30px;
+    box-shadow: 0px 0px 3px #ddd;
+    position: relative;
+    width: 170px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    text-align: center;
+    transition: transform 0.13s ease-in;
+}
+
+.botones:hover {
+    transform: scale(1.1);
+}
+
+.cont--basura {    
+    background-image: url(https://png.pngtree.com/png-clipart/20230805/original/pngtree-rounded-flat-vector-icon-of-a-red-trash-can-vector-picture-image_9721363.png);
+    background-size: 38px;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 20px;
+}
+
+
+.cont--filtrer {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-image: url(https://img.icons8.com/?size=50&id=43428&format=png);
+    background-repeat: no-repeat;
+    background-size: 39px;
+    position: absolute;
+    left: 8px;
+}
+
+.boton1 {
+    border: solid 2px #023F81;
+    color: #023F81;
+}
+
+.cont--import {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-image: url(https://w7.pngwing.com/pngs/202/492/png-transparent-computer-icons-export-international-trade-share-icon-data-export-icon-miscellaneous-text-service-thumbnail.png);
+    background-repeat: no-repeat;
+    background-size: 34px;
+    position: absolute;
+    transform: rotate(180);
+    left: 8px;
+}
+
+.boton2 {
+    border: solid 2px #023F81;
+    color: white;
+    background-color: #023F81;
+}
+
+.cont--export {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-image: url(https://static-00.iconduck.com/assets.00/import-icon-2048x1706-hr33w8jc.png);
+    background-repeat: no-repeat;
+    background-size: 39px;
+    position: absolute;
+    transform: rotate(180);
+    left: 8px;
+    top: 10px;
+}
+
+.orders2__cont-1 {
+    width: 100%;
+    height: 85px;
+    background-color: #fff;
+    border-bottom: solid 2px #ddd;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 24px 24px 0px 0px;
+    position: relative;
+}
+
+.orders2__text {
+    display: inline-block;
+    font-size: 26px;
+    font-weight: 400;
+}
+
+.orders2__span {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url(../assets/flecha.png);
+    background-repeat: no-repeat;
+    position: absolute;
+}
+
+.cont-span1 {
+    left: 334px;
+    top: 33px;
+}
+
+.cont-span2 {
+    left: 592px;
+    top: 33px;
+}
+
+.orders2__input[type="checkbox"] {
+    transform: scale(2.3); 
+    -webkit-transform: scale(2.3); 
+    -moz-transform: scale(2.3); 
+    -ms-transform: scale(2.3); 
+    -o-transform: scale(2.3); 
+    margin: 10px;
+}
+
+.orders2__cont-2 {
+    position: relative;
+    align-items: center;
+}
+
+.orders2__input-text {
+    position: absolute;
+    width: 90px;
+    font-size: 22px;
+    outline: none;
+    border: none;
+    border-bottom: solid 2px #999;
+}
+
+.input-quebrado {
+    display: inline-block;
+    position: absolute;
+    left: 74px;
+    top: 20px;
+}
+
+.text--2 {
+    width: 240px;
+    font-size: 20px;
+    left: 420px;
+    top: 20px;
+}
+
+.text--1 {
+    left: 256px;
+    top: 20px;
+}
+
+.text--3 {
+    width: 120px;
+    right: 230px;
+    top: 20px;
+}
+
+.orders2__input-date {
+    position: absolute;
+    right: 42px;
+    top: 20px;
+    transform: scale(1.5);
+}
+
+select {
+    position: absolute;
+    top: 20px;
+    right: 700px;
+    transform: scale(1.7);
+    border: solid 1.6px #023F81;
+    border-radius: 10px;
+}
+
+.orders2__input-image {
+    position: absolute;
+    transform: scale(1.6);
+    top: 20px;
+    right: 500px;
+}
+
+.orders2__options1 {
+    color: #6a8;
+    background-image: url(../assets/paid.PNG);
+    background-repeat: no-repeat;
+}
+
+.orders2__options2 {
+    color: red;
+}
+
+.orders2__options3 {
+    color: #999;
+}
