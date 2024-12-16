@@ -16,11 +16,13 @@ import PatientCreate from "./pages/PatientCreate";
 import PatientSymptoms from "./pages/PatientSymptoms";
 import PatientMedicalFile from "./pages/PatientMedicalFile";
 import PatientSuggestProduct from "./pages/PatientSuggestProduct";
+import Products from "./pages/products";
 
 function App() {
   return (
     <div className="App">
       <Routes>
+        <Route path="/products" element={<Products/>}/>
         <Route path="/" element={<Login />} />
         <Route path="/stadistics" element={<Stats />} />
         <Route path="/Perfil" element={<Perfil_Doctor />} />

@@ -13,7 +13,7 @@ module.exports = (sequelize) => {
     modelo: {
         type: DataTypes.STRING,
     },
-    anio:{
+    año:{
         type:DataTypes.STRING,
     },
     precio: {
@@ -28,6 +28,9 @@ module.exports = (sequelize) => {
     imagenes: {
         type: DataTypes.STRING,
     },
+    CategoriaId: {
+      type: DataTypes.INTEGER,
+    }
   },
     {
       timestamps: true,
