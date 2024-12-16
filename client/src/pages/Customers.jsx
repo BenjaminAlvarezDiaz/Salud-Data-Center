@@ -71,7 +71,7 @@ function Customers (){
     useEffect(() => {
         dispatchPatients();
         //dispatchRecords();
-        dispatchProducts();
+        //dispatchProducts();
     }, []);
 
     return (
@@ -116,18 +116,53 @@ function Customers (){
 }
 
 function UserCard ({patient}){
-    const [isOpen, setIsOpen] = useState(false);
+    const [ isOpen, setIsOpen ] = useState(false);
     const { isPopupOpen, openPopup, closePopup } = usePopup();
+    const [ record, setRecord ] = useState([]);
+    const [ product, setProduct ] = useState([]);
+    const [ products, setProducts ] = useState([]);
+    const [ searchArray, setSearchArray ] = useState([]);
+    const [ filteredItems, setFilteredItems ] = useState([]);
+
     const navigate = useNavigate();
+    const dispatch = useDispatch();
 
     const toggleDropdown = () => {
         setIsOpen(!isOpen);
     }
 
-    const onClickPopUp = (event) => {
+    const onClickPopUp = async (event) => {
+        console.log(patient.dni);
         event.stopPropagation();
+        var patientData = {id: null, dnipaciente: patient.dni};
+        try{
+            //get last record
+            var result = await dispatch(getRecords(patientData));
+            setRecord(result);
+            //get product by id
+            var product = { id: result.suggestProduct };
+            result = await dispatch(getProducts(product));
+            setProduct(result.data);
+            //get all products
+            product = { id: null };
+            result = await dispatch(getProducts(product));
+            setProducts(result.data);
+            setSearchArray(Object.values(result.data).map(item => item.modelo + " " + item.marca));
+        } catch (error) {
+            console.error("Error al obtener el registro:", error);
+            if (error.response && error.response.status === 404) {
+                alert("No hay registro para mostrar");
+            }
+        }
         openPopup();
     }
+
+    const onFilter = (filteredData) => {
+        setFilteredItems(filteredData); // Guarda los datos filtrados en el estado del componente padre
+        /*console.log(searchArray.filter(item => item.toLowerCase().includes(filteredItems)));*/
+        console.log(filteredData);
+        /*setData(searchArray.filter(item => item.toLowerCase().includes(filteredItems)));*/
+    };
 
     if(!isOpen){
         return (
@@ -135,7 +170,7 @@ function UserCard ({patient}){
                 <button className='customers-user-card' onClick={toggleDropdown}>
                     <div>
                         <div className='customers-user-card-data-left'><span className='material-icons user-data'>person</span> { patient.apellido + " " + patient.nombre } </div>
-                        <div className='customers-user-card-data-left'><span className="material-symbols-outlined user-data">id_card</span> { patient.dni } </div>
+                        <div className='customers-user-card-data-left dni'><span className="material-symbols-outlined user-data">id_card</span> { patient.dni } </div>
                     </div>
                 </button>
             </div>
@@ -146,7 +181,7 @@ function UserCard ({patient}){
                 <button className='customers-user-card' onClick={toggleDropdown}>
                     <div>
                         <div className='customers-user-card-data-left'><span className='material-icons user-data'>person</span> { patient.apellido + " " + patient.nombre } </div>
-                        <div className='customers-user-card-data-left'><span className="material-symbols-outlined user-data">id_card</span> { patient.dni } </div>
+                        <div className='customers-user-card-data-left dni'><span className="material-symbols-outlined user-data">id_card</span> { patient.dni } </div>
                     </div>
                     <div className='row'>
                         <div className='colum'>
@@ -164,12 +199,60 @@ function UserCard ({patient}){
                         isOpen={isPopupOpen}
                         onClose={closePopup}
                         children={
-                            <div>
-                                <h2>{patient.nombre + " " + patient.apellido}</h2>
-                                <div>{patient.email}</div>
-                                {patient.telefono + " " + patient.telefono2}
-                                <div>
-                                    <span className='material-icons'></span> Tratamiento:
+                            <div className='customers-popup-main-container'>
+                                <div className='customers-popup-contact-container'>
+                                    <div className='customers-popup-person'>
+                                        <span className='material-icons popup-person'>person</span>
+                                    </div>
+                                    <div className='customers-popup-contact-labels'>
+                                        <h2>{patient.apellido + " " + patient.nombre}</h2>
+                                        <div className='customers-popup-label'>{patient.email}</div>
+                                        <div className='customers-popup-label'>{ "+" + patient.telefono + " " + "+" + patient.telefono2}</div>
+                                    </div>
+                                </div>
+                                <div className='customers-popup-record-container'>
+                                    <div className='customers-popup-record-labels'>
+                                        <div className='customers-popup-record-label'>
+                                            <span className="material-symbols-outlined record-icon">stethoscope</span> Tratamiento:
+                                        </div>
+                                        {patient.tratamiento}
+                                        <div className='customers-popup-record-label'>
+                                            <span className="material-symbols-outlined record-icon">clinical_notes</span> Indicaciones:
+                                        </div>
+                                        {record.indicaciones}
+                                        <div className='customers-popup-record-label'>
+                                            <span className='material-icons record-icon'>medication</span> Producto sugerido:
+                                        </div>
+                                        {product.name}
+                                    </div>
+                                    <div className='customers-popup-products-container'>
+                                        <SearchBox placeHolder={"Buscar"} data={searchArray} onFilter={onFilter}/>
+                                        <div className='customers-popup-products-list'>
+                                            {filteredItems.length > 0? 
+                                                (products.map((item, index) => (
+                                                    filteredItems == item.modelo + " " + item.marca ||
+                                                    filteredItems == item.modelo + item.marca || 
+                                                    filteredItems == item.modelo || 
+                                                    filteredItems == item.marca?
+                                                    <ProductCard
+                                                        key = {index}
+                                                        title = {item.name}
+                                                        subTitle = {item.id}
+                                                    /> : null
+                                                )))
+                                                :
+
+                                                (products.map((item, index) => (
+                                                    <ProductCard
+                                                        key = {index}
+                                                        title = {item.name}
+                                                        subTitle = {item.id}
+                                                    />
+                                                )))
+                                            }
+                                        </div>
+                                        <button>Ofrecer</button>
+                                    </div>
                                 </div>
                             </div>
                         }
@@ -178,6 +261,18 @@ function UserCard ({patient}){
             </div>
         );
     }
+}
+
+function ProductCard ({title, subTitle}){
+    return (
+        <div className='customers-product-card-container'>
+            <span className='material-icons product-card-icon'>medication</span>
+            <div className='customers-product-card-labels'>
+                <div>{title}</div>
+                <div>{ "ID:" + subTitle}</div>
+            </div>
+        </div>
+    );
 }
 
 export default Customers;

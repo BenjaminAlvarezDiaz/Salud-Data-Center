@@ -120,7 +120,7 @@ function ProductCard ({ product }){
                 {/*<span className='material-icons'>medication</span>*/}
                 <div className='products-card-model-mark'>
                     <div className='products-card-name'>{product.name}</div>
-                    <div className='products-card-model-mark-id'>{product.modelo + " " + product.marca}</div>
+                    <div className='products-card-model-mark-id'>{product.marca}</div>
                     <div className='products-card-model-mark-id'>ID: {product.id}</div>
                 </div>
             </div>

@@ -48,7 +48,7 @@ function Login(){
             if (loginType === "doctor") {
                 navigate("/patients");
             } else if (loginType === "company") {
-                navigate("/products");
+                navigate("/orders");
             }
         })
         .catch((error) => {

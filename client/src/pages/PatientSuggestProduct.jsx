@@ -34,7 +34,7 @@ function PatientSuggestProduct (){
             setProducts(result.data);
             setSearchArray(Object.values(result.data).map(item => item.modelo + " " + item.marca));
             const suggestResult = await dispatch(getProducts(suggestProduct));
-            setSuggestProducts(suggestResult.data);
+            setSuggestProducts([suggestResult.data]);
         } catch (error) {
             console.error("Error al obtener los productos:", error);
             if (error.response && error.response.status === 404) {
