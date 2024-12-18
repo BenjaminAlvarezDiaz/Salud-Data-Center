@@ -19,6 +19,9 @@ module.exports = (sequelize) => {
         total: {
             type: DataTypes.FLOAT,
         },
+        fecha: {
+            type: DataTypes.STRING,
+        },
     },
     {
         timestamps: true,

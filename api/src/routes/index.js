@@ -19,7 +19,7 @@ router.use('/Product', ProductosRoute);
 router.use('/Category', CategoriaRoute);
 router.use('/Records', RecordsRoute);
 router.use('/Appointment', CitasRoute);
-router.use('/Order', PedidosRoute);
+router.use('/Orders', PedidosRoute);
 
 
 
