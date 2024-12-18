@@ -102,7 +102,7 @@ export function putPatients(userData){
                 dispatch({ type: PUT_PATIENTS_SUCCESS, payload: patient });
             }else {
                 // Dispara una acción de error si no encontro al paciente
-                dispatch({ type: PUT_PATIENTS_SUCCESS, payload: "No se encontro al paciente" });
+                dispatch({ type: PUT_PATIENTS_FAILURE, payload: "No se encontro al paciente" });
             }
             return response;
             

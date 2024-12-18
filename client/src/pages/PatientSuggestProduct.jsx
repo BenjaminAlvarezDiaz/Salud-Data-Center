@@ -34,7 +34,7 @@ function PatientSuggestProduct (){
             setProducts(result.data);
             setSearchArray(Object.values(result.data).map(item => item.modelo + " " + item.marca));
             const suggestResult = await dispatch(getProducts(suggestProduct));
-            setSuggestProducts(suggestResult.data);
+            setSuggestProducts([suggestResult.data]);
         } catch (error) {
             console.error("Error al obtener los productos:", error);
             if (error.response && error.response.status === 404) {
@@ -115,9 +115,9 @@ function PatientSuggestProduct (){
                                 setRecord = {setRecord}
                                 setSuggestProducts = {setSuggestProducts}
                                 id = {item.id}
-                                title = {item.modelo + " " + item.marca}
+                                title = {item.name}
                                 subTitle = {"$" + item.precio}
-                                description = {item.descripcion}
+                                description = {item.modelo + " " + item.marca}
                             /> : null
                         )))
                     : 
@@ -129,9 +129,9 @@ function PatientSuggestProduct (){
                                 setRecord = {setRecord}
                                 setSuggestProducts = {setSuggestProducts}
                                 id = {item.id}
-                                title = {item.modelo + " " + item.marca}
+                                title = {item.name}
                                 subTitle = {"$" + item.precio}
-                                description = {item.descripcion}
+                                description = {item.modelo + " " + item.marca}
                             />
                         )))
                     }
@@ -145,9 +145,9 @@ function PatientSuggestProduct (){
                     {suggestProducts.map((item, index) => (
                         <ProductCard
                             key = {index}
-                            title = {item.modelo + " " + item.marca}
+                            title = {item.name}
                             subTitle = {"$" + item.precio}
-                            description = {item.descripcion}
+                            description = {item.modelo + " " + item.marca}
                         />
                     ))}
                 </div> : (<div>No hay productos aún</div>)}

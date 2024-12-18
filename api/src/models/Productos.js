@@ -7,6 +7,9 @@ module.exports = (sequelize) => {
       primaryKey: true,
       autoIncrement: true,
     },
+    name: {
+      type: DataTypes.STRING,
+    },
     marca: {
         type: DataTypes.STRING,
     },
@@ -28,6 +31,12 @@ module.exports = (sequelize) => {
     imagenes: {
         type: DataTypes.STRING,
     },
+    stock: {
+      type: DataTypes.INTEGER,
+    },
+    published: {
+      type: DataTypes.BOOLEAN,
+    }
   },
     {
       timestamps: true,

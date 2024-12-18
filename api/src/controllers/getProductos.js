@@ -30,15 +30,9 @@ async function getProducts (req, res) {
 
 
 async function getProductsById (id) {
-   
-        
-  const tipo = await Product.findAll({
-      where: {
-          id,
-      }
-  })
-  return tipo.length?tipo:false   
-
+  console.log(id);
+  const product = await Product.findByPk(id);
+  return product? product : false;
 } 
 
 

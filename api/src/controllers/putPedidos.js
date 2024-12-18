@@ -13,7 +13,7 @@ async function updateOrders(req, res){
             
             return res.json({ message: 'Pedido actualizado correctamente', order });
         } else {
-            return res.status(404).json({ message: 'Paciente no encontrado' });
+            return res.status(404).json({ message: 'Pedido no encontrado' });
         }
     }catch (error) {
         console.error("Error al actualizar el pedido:", error);

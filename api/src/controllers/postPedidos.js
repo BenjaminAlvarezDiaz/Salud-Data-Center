@@ -6,6 +6,7 @@ async function postOrders(req, res) {
       idProducto,
       estadoPedido,
       total,
+      fecha,
     } = req.body;
     try {
       const NewOrder = await Order.create({
@@ -13,6 +14,7 @@ async function postOrders(req, res) {
         idProducto,
         estadoPedido,
         total,
+        fecha,
       });
       console.log(NewOrder);
     } catch (error) {

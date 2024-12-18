@@ -13,8 +13,8 @@
 
 .popup-content {
     background: white;
-    padding: 20px;
-    border-radius: 8px;
+    padding: 30px;
+    border-radius: 20px;
     max-width: 500px;
     width: 100%;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -23,10 +23,22 @@
   
 .close-button {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 0px;
+    right: 5px;
     background: transparent;
     border: none;
+    border-radius: 50px;
     font-size: 24px;
     cursor: pointer;
+    box-shadow: 0px 0px 0px;
+    padding: 0px 8px 5px 5px;
+}
+
+.close-button:hover {
+    border-color: var(--white);
+}
+
+.close-button:active {
+    background-color: var(--white);
+    color: var(--default-text);
 }

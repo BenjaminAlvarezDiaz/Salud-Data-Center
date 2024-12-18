@@ -3,12 +3,13 @@ const { Product } = require ("../db.js");
 //Crear projecto
 
 async function postProduct (req, res) {
-    const { CategoriaId, marca, modelo, anio, precio, descripcion, ficha_tecnica, imagenes } = req.body
+    const { CategoriaId, name, marca, modelo, anio, precio, descripcion, ficha_tecnica, imagenes, stock, published, } = req.body
 
     try {
 
     const newProduct = await Product.create({
         CategoriaId,
+        name,
         marca,
         modelo,
         anio,
@@ -16,6 +17,8 @@ async function postProduct (req, res) {
         descripcion,
         ficha_tecnica,
         imagenes,
+        stock,
+        published,
     })
 
     res.json(newProduct)

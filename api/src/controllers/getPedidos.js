@@ -11,7 +11,7 @@ async function getOrders (req, res){
             }
         }
 
-        if(req.query.estadoPedido== 'paid'){
+        if(req.query.estadoPedido == 'paid'){
             const Ordenes = await getOrdersByStatus(req.query.estadoPedido);
             if (Ordenes){
                 return res.json(Ordenes);
