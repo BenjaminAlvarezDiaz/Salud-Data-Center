@@ -23,7 +23,7 @@ function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
                         <a href="/products">
                             <button className='button'>
                                 <span className="material-icons span-icon">local_mall</span> 
-                                Products 
+                                Productos 
                             </button>
                         </a>
                     </li>
@@ -31,7 +31,7 @@ function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
                         <a href="/orders">
                             <button className='button'>
                                 <span className="material-icons span-icon">receipt_long</span> 
-                                Orders 
+                                Pedidos 
                             </button>
                         </a>
                     </li>
@@ -39,7 +39,7 @@ function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
                         <a href="/stadistics">
                             <button className='button'>
                                 <span className="material-icons span-icon">show_chart</span> 
-                                Stadistics 
+                                Estadisticas 
                             </button>
                         </a>
                     </li>
@@ -47,7 +47,7 @@ function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
                         <a href="/customers">
                             <button className='button'>
                                 <span className="material-icons span-icon">group</span> 
-                                Customers 
+                                Clientes 
                             </button>
                         </a>
                     </li>
@@ -55,7 +55,7 @@ function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
                         <a href="/settings">
                             <button className='button'>
                                 <span className="material-icons span-icon">settings</span> 
-                                Settings 
+                                Configuraciones 
                             </button>
                         </a>
                     </li>
@@ -67,7 +67,7 @@ function Sidebar({ isOpen, toggleSidebar, logo, companyName}){
                         <a href="/help">
                             <button className='button'>
                                 <span className="material-icons span-icon">info</span> 
-                                Help 
+                                Ayuda 
                             </button>
                         </a>
                     </li>

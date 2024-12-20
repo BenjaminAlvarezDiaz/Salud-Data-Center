@@ -1,0 +1,126 @@
+.settings-main-container {
+    background-color: var(--background-color);
+    color: var(--background-color);
+    height: 100vh;
+    width: 100%;
+}
+
+.settings-icon-right {
+    width: 40px;
+    height: 40px;
+    background: var(--background-color);
+    border-radius: 30px;
+    align-content: center;
+}
+
+.material-icons.icon-app-bar {
+    font-size: 20px;
+    padding-top: 5px;
+    color: var(--default-text);
+}
+
+.settings-content {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    margin-top: 60px;
+    margin-bottom: 0px;
+    margin-left: 250px;
+    padding-bottom: 5px;
+    width: 80%;
+    height: 100%;
+    background-color: var(--background-color);
+    border-radius: 20px;
+}
+
+.settings-content-up {
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    padding: 0px;
+    gap: 20px;
+}
+
+.settings-content-up-left {
+    width: 200px;
+    margin: 40px 40px;
+    border-radius: 100px;
+    background-color: var(--grey5);
+}
+
+.settings-content-up-right {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 70%;
+    padding: 10px 20px;
+    gap: 20px;
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px var(--shadow-container);
+    background-color: var(--white);
+    color: var(--default-text);
+}
+
+.settings-label-title {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.settings-label {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.settings-input-container.title {
+    width: 70%;
+    background-color: var(--background-color);
+    color: var(--default-text);
+    border: none;
+    border-radius: 20px;
+}
+
+.settings-input-container {
+    width: 60%;
+    background-color: var(--background-color);
+    color: var(--default-text);
+    border: none;
+    border-radius: 20px;
+}
+
+.settings-input {
+    border: none;
+    width: 90%;
+    outline: none;
+    margin: 10px;
+    font-size: 16px;
+    border-radius: 20px;
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.settings-input.title {
+    font-size: 22px;
+    font-weight: 500;
+}
+
+.settings-content-down {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 45%;
+    background-color: var(--white);
+    box-shadow: 0px 0px 5px var(--shadow-container);
+    border-radius: 20px/*upleft*/ 20px/*upright*/ 20px 20px;
+    overflow: hidden;
+}
+
+.settings-content-down-left {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    width: 70%;
+    padding: 10px 20px;
+    gap: 20px;
+    color: var(--default-text);
+}
