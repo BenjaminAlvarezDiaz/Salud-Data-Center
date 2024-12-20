@@ -18,19 +18,21 @@ import PatientCreate from "./pages/PatientCreate";
 import PatientSymptoms from "./pages/PatientSymptoms";
 import PatientMedicalFile from "./pages/PatientMedicalFile";
 import PatientSuggestProduct from "./pages/PatientSuggestProduct";
+import Settings from "./pages/Settings";
 
 function App() {
   return (
     <div className="App">
       <Routes>
         <Route path="/" element = {<Login />} />
-        <Route path="/stadistics" element = {<Stats />} />
         <Route path="/Perfil" element = {<Perfil_Doctor />} />
         <Route path="/PerfilEmp" element = {<Perfil_Empresa />} />
-        <Route path="/Help" element = {<Help />} />
-        <Route path="/Customers" element = {<Customers />} />
         <Route path="/Products" element = {<Products />} />
         <Route path="/Orders" element = {<Orders />} />
+        <Route path="/stadistics" element = {<Stats />} />
+        <Route path="/Customers" element = {<Customers />} />
+        <Route path="/Settings" element = {<Settings />} />
+        <Route path="/Help" element = {<Help />} />
         <Route path="/SignUp" element = {<SignUp />} />
         <Route path="/signupdoctor" element = {<SignUpDoctor />} />
         <Route path="/signupcompany" element = {<SignUpCompany />} />

@@ -198,6 +198,7 @@ function StatusDropdown ({id, status}){
         try {
             const order = {id: id, estadoPedido: status}
             dispatch(putOrders(order));
+            toggleDropdown();
         } catch (error) {
             console.error("Error al obtener los pedidos:", error);
             if (error.response && error.response.status === 404) {
