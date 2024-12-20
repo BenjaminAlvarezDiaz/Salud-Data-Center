@@ -11,14 +11,17 @@ export function authDoctor (userData){
 
             if(doctor){
                 dispatch({ type: LOGIN_SUCCESS, payload: doctor });
+                return { type: LOGIN_SUCCESS, payload: doctor };
             } else {
-                dispatch({ type: LOGIN_FAILURE, payload: "Credenciales incorrectas" });
+                const error = "Credenciales incorrectas";
+                dispatch({ type: LOGIN_FAILURE, payload: error });
+                return { type: LOGIN_FAILURE, payload: error };
             }
 
         } catch (error) {
             // Si hay un error con la solicitud se dipara por aquí
             dispatch({ type: LOGIN_FAILURE, payload: error.message });
-            return error
+            return { type: LOGIN_FAILURE, payload: error.message };
         }
     };
 }
@@ -33,14 +36,17 @@ export function authCompany (userData){
 
             if(company){
                 dispatch({ type: LOGIN_SUCCESS, payload: company });
+                return { type: LOGIN_SUCCESS, payload: company };
             } else {
-                dispatch({ type: LOGIN_FAILURE, payload: "Credenciales incorrectas" });
+                const error = "Credenciales incorrectas";
+                dispatch({ type: LOGIN_FAILURE, payload: error });
+                return { type: LOGIN_FAILURE, payload: error };
             }
 
         } catch (error) {
             // Si hay un error con la solicitud se dipara por aquí
             dispatch({ type: LOGIN_FAILURE, payload: error.message });
-            return error
+            return { type: LOGIN_FAILURE, payload: error.message };
         }
     };
 }

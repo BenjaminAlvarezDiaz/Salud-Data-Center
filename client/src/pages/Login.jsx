@@ -6,6 +6,7 @@ import LoginForm from "../components/LoginForm/LoginForm";
 import FacebookLoginButton from "../components/FacebookLoginButton/FacebookLoginButton";
 import GoogleLoginButton from "../components/GoogleLoginButton/GoogleLoginButton";
 import { authCompany, authDoctor } from "../redux/actions/auth_actions";
+import { LOGIN_SUCCESS, LOGIN_FAILURE } from "../redux/const";
 
 function Login(){
     const [showAuthContainer, setShowAuthContainer] = useState(false);
@@ -44,18 +45,20 @@ function Login(){
             loginType === "doctor"? authDoctor({ email, password }) 
             : loginType === "company"? authCompany({ email, password }) : null 
         )
-        .then(() => {
-            if (loginType === "doctor") {
-                navigate("/patients");
-            } else if (loginType === "company") {
-                navigate("/orders");
+        .then((result) => {
+            if (result.type === LOGIN_SUCCESS) {
+                if (loginType === "doctor") {
+                    navigate("/patients");
+                } else if (loginType === "company") {
+                    navigate("/products");
+                }
+            } else if (result.type === LOGIN_FAILURE) {
+                console.error("Error al verificar usuario:", result.payload);
+                alert(result.payload || "Credenciales incorrectas.");
             }
         })
         .catch((error) => {
-            console.error("Error al verificar usuario:", error);
-            if (error.response && error.response.status === 404) {
-                alert("No existe un doctor con esas credenciales.");
-            }
+            console.error("Error inesperado:", error);
         });
     }
 
